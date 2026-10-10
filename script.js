@@ -105,3 +105,39 @@ function contactWorker() {
     const phoneNumber = "9876543210";
     window.location.href = "tel:" + phoneNumber;
 }
+// Contact Worker
+function contactWorker() {
+
+    const phoneNumber = "9876543210";
+
+    window.location.href = "tel:" + phoneNumber;
+}
+
+
+// WhatsApp Worker
+function whatsappWorker() {
+
+    const phoneNumber = "919876543210";
+
+    const message =
+        "Hello Ramesh, I found your profile on LabourConnect. I would like to discuss a job.";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+}
+
+
+// Hire Worker
+function hireWorker() {
+
+    alert(
+        "Hire request sent successfully!\n\n" +
+        "Worker: Ramesh Kumar\n" +
+        "Worker ID: LC1025"
+    );
+}
