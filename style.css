@@ -867,3 +867,257 @@ footer {
 .worker-card {
     /* CSS code here */
 }
+/* ============================= */
+/* WORKER PROFILE SECTION */
+/* ============================= */
+
+.worker-section {
+    padding: 50px 20px;
+    background: #f8fafc;
+    font-family: Arial, sans-serif;
+}
+
+.worker-section > h2 {
+    text-align: center;
+    color: #172554;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+
+/* Worker Card */
+
+.worker-card {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Header */
+
+.worker-header {
+    background: #172554;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.worker-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.worker-header p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.verified {
+    background: #22c55e;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* Profile */
+
+.worker-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 20px;
+}
+
+.worker-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2563eb;
+}
+
+.worker-name h3 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 22px;
+}
+
+.worker-id {
+    margin: 5px 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.rating {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.rating span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.available {
+    display: inline-block;
+    color: #16a34a;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* Details */
+
+.worker-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 20px 20px;
+}
+
+.detail {
+    background: #f1f5f9;
+    padding: 13px;
+    border-radius: 12px;
+}
+
+.detail span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.detail strong {
+    color: #172554;
+    font-size: 14px;
+}
+
+
+/* About */
+
+.about-worker {
+    margin: 0 20px 20px;
+    padding: 15px;
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 10px;
+}
+
+.about-worker h3 {
+    margin: 0 0 7px;
+    color: #172554;
+    font-size: 16px;
+}
+
+.about-worker p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+/* Buttons */
+
+.worker-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 10px;
+}
+
+.contact-btn,
+.whatsapp-btn,
+.hire-btn {
+    border: none;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.contact-btn {
+    flex: 1;
+    background: #2563eb;
+    color: white;
+}
+
+.whatsapp-btn {
+    flex: 1;
+    background: #22c55e;
+    color: white;
+}
+
+.hire-btn {
+    width: calc(100% - 40px);
+    margin: 0 20px 25px;
+    background: #172554;
+    color: white;
+    font-size: 16px;
+}
+
+
+/* Hover */
+
+.contact-btn:hover {
+    background: #1d4ed8;
+}
+
+.whatsapp-btn:hover {
+    background: #16a34a;
+}
+
+.hire-btn:hover {
+    background: #1e3a8a;
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .worker-section {
+        padding: 30px 10px;
+    }
+
+    .worker-profile {
+        gap: 12px;
+    }
+
+    .worker-photo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .worker-name h3 {
+        font-size: 18px;
+    }
+
+    .worker-details {
+        gap: 8px;
+    }
+
+    .detail {
+        padding: 10px;
+    }
+
+    .worker-buttons {
+        flex-direction: column;
+    }
+}
