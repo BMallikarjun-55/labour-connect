@@ -3,127 +3,319 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Labour Connect</title>
+
+  <title>LabourConnect - Find Work & Hire Workers</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <h1>Labour Connect</h1>
-  <p>Find Work • Hire Workers</p>
+<!-- NAVBAR -->
+<header class="navbar">
+
+  <div class="logo">
+    <div class="logo-icon">👷</div>
+    <div>
+      <h1>Labour<span>Connect</span></h1>
+      <small>Work • Hire • Grow</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#jobs">Find Jobs</a>
+    <a href="#workers">Find Workers</a>
+    <a href="#postjob">Post a Job</a>
+  </nav>
+
+  <div class="auth-buttons">
+    <button class="login-btn" onclick="login()">👤 Login</button>
+    <button class="register-btn" onclick="register()">Register</button>
+  </div>
+
 </header>
 
-<section class="hero">
-  <h2>Find the Right Worker for Your Work</h2>
-  <p>Connect workers and people looking for skilled labour.</p>
 
-  <button onclick="showWorkers()">Find Workers</button>
-  <button onclick="showJob()">Looking for Work</button>
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <h2>
+      Find Work.<br>
+      Hire Workers.<br>
+      <span>All in One Place.</span>
+    </h2>
+
+    <p>
+      LabourConnect connects skilled and unskilled workers
+      with people who need reliable labour, quickly and easily.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button class="hire-btn" onclick="hireWorker()">
+        👷 Hire a Labour
+      </button>
+
+      <button class="work-btn" onclick="findWork()">
+        👤 Find Work
+      </button>
+
+    </div>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search jobs or workers..."
+      >
+
+      <button onclick="searchWebsite()">Search</button>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <div class="worker worker1">👨‍🔧</div>
+    <div class="worker worker2">👷</div>
+    <div class="worker worker3">👩‍🌾</div>
+    <div class="worker worker4">👨‍🌾</div>
+
+  </div>
+
 </section>
 
-<section id="content" class="cards">
 
-  <div class="card">
-    <h3>👷 Mason</h3>
-    <p>Construction and building work</p>
-    <button>Contact</button>
+<!-- POPULAR CATEGORIES -->
+<section class="categories" id="jobs">
+
+  <div class="section-title">
+
+    <div>
+      <h2>Popular Categories</h2>
+      <p>Find workers for different types of work</p>
+    </div>
+
+    <button onclick="showAllCategories()">View All →</button>
+
   </div>
 
-  <div class="card">
-    <h3>🔧 Electrician</h3>
-    <p>Electrical installation and repair</p>
-    <button>Contact</button>
-  </div>
 
-  <div class="card">
-    <h3>🎨 Painter</h3>
-    <p>House and building painting</p>
-    <button>Contact</button>
+  <div class="category-grid">
+
+    <div class="category construction" onclick="categorySearch('Construction')">
+      <div class="category-icon">🧱</div>
+      <h3>Construction</h3>
+      <p>124+ jobs</p>
+    </div>
+
+    <div class="category painting" onclick="categorySearch('Painting')">
+      <div class="category-icon">🎨</div>
+      <h3>Painting</h3>
+      <p>86+ jobs</p>
+    </div>
+
+    <div class="category cleaning" onclick="categorySearch('Cleaning')">
+      <div class="category-icon">🧹</div>
+      <h3>Cleaning</h3>
+      <p>72+ jobs</p>
+    </div>
+
+    <div class="category farming" onclick="categorySearch('Farming')">
+      <div class="category-icon">🌱</div>
+      <h3>Farming</h3>
+      <p>58+ jobs</p>
+    </div>
+
+    <div class="category plumbing" onclick="categorySearch('Plumbing')">
+      <div class="category-icon">🔧</div>
+      <h3>Plumbing</h3>
+      <p>46+ jobs</p>
+    </div>
+
+    <div class="category electrician" onclick="categorySearch('Electrician')">
+      <div class="category-icon">⚡</div>
+      <h3>Electrician</h3>
+      <p>39+ jobs</p>
+    </div>
+
   </div>
 
 </section>
-  <section class="id-section">
 
-  <h2>Create Worker ID Card</h2>
 
-  <div class="id-card">
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
 
-    <div class="id-header">
-      <h2>LABOUR CONNECT</h2>
-      <p>WORKER ID CARD</p>
-    </div>
+  <h2>How LabourConnect Works</h2>
+  <p>Simple steps to get you started</p>
 
-    <div class="id-content">
 
-      <label class="photo-box">
-        <input type="file" id="photoInput" accept="image/*" onchange="uploadPhoto()">
-        <img id="workerPhoto" src="" alt="Worker Photo">
-        <span id="photoText">📷 Upload Photo</span>
-      </label>
+  <div class="steps">
 
-      <div class="worker-details">
+    <div class="step">
 
-        <p><b>Name:</b> <span id="cardName">Ramesh Kumar</span></p>
+      <div class="step-number">1</div>
 
-        <p><b>Worker ID:</b> <span id="cardId">LC1001</span></p>
+      <div class="step-icon">👤</div>
 
-        <p><b>Work:</b> <span id="cardWork">Mason</span></p>
+      <h3>Register</h3>
 
-        <p><b>Experience:</b> <span id="cardExperience">5 Years</span></p>
-
-        <p><b>Daily Wage:</b> ₹<span id="cardWage">800</span></p>
-
-        <p><b>Location:</b> <span id="cardLocation">Karimnagar</span></p>
-
-        <p><b>Work Places:</b> <span id="cardPlaces">Homes, Buildings</span></p>
-
-        <p><b>Contact:</b> <span id="cardContact">9876543210</span></p>
-
-      </div>
+      <p>
+        Create your account as an employer or a worker.
+      </p>
 
     </div>
 
-    <div class="verified">
-      ✓ VERIFIED WORKER
+
+    <div class="arrow">→</div>
+
+
+    <div class="step">
+
+      <div class="step-number">2</div>
+
+      <div class="step-icon">🔍</div>
+
+      <h3>Search</h3>
+
+      <p>
+        Find the right workers or jobs based on your needs.
+      </p>
+
+    </div>
+
+
+    <div class="arrow">→</div>
+
+
+    <div class="step">
+
+      <div class="step-number">3</div>
+
+      <div class="step-icon">🤝</div>
+
+      <h3>Connect</h3>
+
+      <p>
+        Contact, hire or apply and get to work!
+      </p>
+
     </div>
 
   </div>
 
-  </section>
-  <section class="owner-section">
+</section>
+
+
+<!-- FIND WORKERS -->
+<section class="workers-section" id="workers">
+
+  <h2>Find Skilled Workers</h2>
+
+  <p>Choose the worker you need</p>
+
+
+  <div class="worker-cards">
+
+    <div class="worker-card">
+      <div class="big-icon">👷</div>
+      <h3>Mason</h3>
+      <p>Construction & building work</p>
+      <button onclick="contactWorker('Mason')">Contact</button>
+    </div>
+
+    <div class="worker-card">
+      <div class="big-icon">🎨</div>
+      <h3>Painter</h3>
+      <p>House & building painting</p>
+      <button onclick="contactWorker('Painter')">Contact</button>
+    </div>
+
+    <div class="worker-card">
+      <div class="big-icon">🔧</div>
+      <h3>Plumber</h3>
+      <p>Pipe & water system work</p>
+      <button onclick="contactWorker('Plumber')">Contact</button>
+    </div>
+
+    <div class="worker-card">
+      <div class="big-icon">⚡</div>
+      <h3>Electrician</h3>
+      <p>Electrical installation & repair</p>
+      <button onclick="contactWorker('Electrician')">Contact</button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- POST JOB -->
+<section class="post-job" id="postjob">
+
+  <div>
+
+    <h2>Need a Worker?</h2>
+
+    <p>
+      Post your job and find the right worker for your work.
+    </p>
+
+  </div>
+
+  <button onclick="postJob()">Post a Job</button>
+
+</section>
+
+
+<!-- OWNER -->
+<section class="owner-section">
 
   <h2>Website Owner</h2>
 
   <div class="owner-card">
 
-    <h3>Labour Connect</h3>
+    <div class="owner-icon">👷</div>
 
-    <p><b>Owner:</b> Your Name</p>
+    <h3>LabourConnect</h3>
 
-    <p><b>Phone:</b>
-      <a href="tel:YOUR_PHONE">YOUR_PHONE</a>
+    <p>
+      <b>Owner:</b> Your Name
     </p>
 
-    <p><b>Email:</b>
-      <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+    <p>
+      <b>Email:</b>
+      <a href="mailto:your@email.com">
+        your@email.com
+      </a>
     </p>
 
-    <p><b>Location:</b> Your City, Telangana</p>
-
-    <p class="owner-note">
-      For website support, worker registration and general enquiries.
+    <p>
+      <b>Location:</b> Telangana, India
     </p>
+
+    <small>
+      For website support, worker registration
+      and general enquiries.
+    </small>
 
   </div>
 
-  </section>
+</section>
 
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Labour Connect</p>
-</footer>
 
-<script src="script.js"></script>
+  <div class="footer-content">
 
-</body>
-</html>
+    <div class="footer-brand">
+
+      <h
