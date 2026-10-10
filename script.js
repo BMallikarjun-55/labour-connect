@@ -101,3 +101,7 @@ function postJob() {
   );
 
 }
+function contactWorker() {
+    const phoneNumber = "9876543210";
+    window.location.href = "tel:" + phoneNumber;
+}
