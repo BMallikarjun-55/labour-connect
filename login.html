@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login - LabourConnect</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="login-logo">
+      👷
+    </div>
+
+    <h1>LabourConnect</h1>
+
+    <p>Login to your account</p>
+
+    <form onsubmit="loginUser(event)">
+
+      <label>Email or Phone</label>
+
+      <input
+        type="text"
+        id="loginEmail"
+        placeholder="Enter email or phone"
+        required
+      >
+
+      <label>Password</label>
+
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Enter password"
+        required
+      >
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <p class="signup-text">
+      Don't have an account?
+      <a href="register.html">Register</a>
+    </p>
+
+    <a class="back-home" href="index.html">
+      ← Back to Home
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+function loginUser(event) {
+
+  event.preventDefault();
+
+  const email =
+    document.getElementById("loginEmail").value;
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  if (email && password) {
+
+    alert("Login successful!");
+
+    window.location.href = "index.html";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
