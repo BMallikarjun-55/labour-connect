@@ -1197,5 +1197,168 @@ footer {
 
     .team-container h2 {
         font-size: 26px;
+      /* =========================
+   WORKERS LOOKING FOR WORK
+========================= */
+
+.workers-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+.workers-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.workers-title span {
+    font-size: 35px;
+}
+
+.workers-title h2 {
+    color: #172554;
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.workers-title p {
+    color: #64748b;
+}
+
+/* Swipe container */
+
+.workers-slider {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    gap: 22px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    padding: 10px 5px 25px;
+
+    scrollbar-width: thin;
+}
+
+/* Worker card */
+
+.worker-card {
+    flex: 0 0 330px;
+
+    background: white;
+    padding: 25px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 12px 35px rgba(23, 37, 84, 0.12);
+
+    scroll-snap-align: start;
+
+    transition: 0.3s;
+}
+
+.worker-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 45px rgba(23, 37, 84, 0.18);
+}
+
+/* Top */
+
+.worker-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.worker-avatar {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #172554, #2563eb);
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+.available {
+    color: #16a34a;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.worker-card h3 {
+    margin: 18px 0 5px;
+    color: #172554;
+    font-size: 22px;
+}
+
+.work {
+    color: #2563eb;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.worker-details {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+}
+
+.worker-details p {
+    margin: 9px 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.view-worker-btn {
+    width: 100%;
+    margin-top: 18px;
+
+    padding: 13px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.view-worker-btn:hover {
+    background: #172554;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .workers-section {
+        padding: 55px 12px;
+    }
+
+    .workers-title h2 {
+        font-size: 26px;
+    }
+
+    .worker-card {
+        flex: 0 0 290px;
+    }
+}
     }
 }
