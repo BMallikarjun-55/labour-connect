@@ -1362,3 +1362,76 @@ footer {
 }
     }
 }
+/* WORKERS LOOKING FOR WORK */
+
+.workers-section {
+    padding: 70px 15px;
+    background: linear-gradient(135deg, #172554, #2563eb, #0f172a);
+    overflow: hidden;
+}
+
+.workers-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.workers-title h2 {
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+.workers-title p {
+    color: #dbeafe;
+}
+
+.workers-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 5px 25px;
+    scrollbar-width: none;
+}
+
+.workers-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.worker-card {
+    flex: 0 0 310px;
+    background: rgba(255,255,255,0.96);
+    padding: 25px;
+    border-radius: 24px;
+    scroll-snap-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.worker-card h3 {
+    color: #172554;
+    font-size: 22px;
+}
+
+.worker-details p {
+    color: #475569;
+    font-size: 14px;
+    margin: 9px 0;
+}
+
+.view-worker-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width:600px) {
+    .worker-card {
+        flex: 0 0 82vw;
+    }
+                          }
