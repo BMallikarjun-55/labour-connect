@@ -1,430 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LabourConnect - Find Work & Hire Workers</title>
+    <title>LabourConnect - Find Work & Hire Workers</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Worker Profile Card -->
-<section class="worker-section">
+    <!-- ================= NAVBAR ================= -->
 
-    <h2>Available Workers</h2>
-    <p class="section-subtitle">Find trusted workers near you</p>
+    <header class="navbar">
 
-    <div class="worker-card">
-
-        <!-- Header -->
-        <div class="worker-header">
-            <div>
-                <h2>LabourConnect</h2>
-                <p>WORKER PROFILE</p>
-            </div>
-
-            <span class="verified">✓ Verified</span>
+        <div class="logo">
+            👷 Labour<span>Connect</span>
         </div>
 
-        <!-- Worker Information -->
-        <div class="worker-profile">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#workers">Workers</a>
+            <a href="#team">Our Team</a>
+            <a href="login.html">Login</a>
+            <a href="Register.html" class="nav-register">Register</a>
+        </nav>
 
-            <img 
-                src="https://via.placeholder.com/150"
-                alt="Worker Photo"
-                class="worker-photo"
-            >
+    </header>
 
-            <div class="worker-name">
-                <h3>Ramesh Kumar</h3>
 
-                <p class="worker-id">
-                    Worker ID: <strong>LC1025</strong>
-                </p>
+    <!-- ================= HERO ================= -->
 
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                    <span>4.8 (32 Reviews)</span>
-                </div>
+    <section class="hero" id="home">
 
-                <span class="available">
-                    ● Available for Work
-                </span>
-            </div>
+        <div class="hero-content">
 
-        </div>
+            <p class="hero-small">WELCOME TO LABOURCONNECT</p>
 
-        <!-- Worker Details -->
-        <div class="worker-details">
-
-            <div class="detail">
-                <span>🛠️ Work Type</span>
-                <strong>Mason</strong>
-            </div>
-
-            <div class="detail">
-                <span>🏆 Experience</span>
-                <strong>5 Years</strong>
-            </div>
-
-            <div class="detail">
-                <span>📍 Location</span>
-                <strong>Hyderabad</strong>
-            </div>
-
-            <div class="detail">
-                <span>💰 Daily Wage</span>
-                <strong>₹800 / Day</strong>
-            </div>
-
-            <div class="detail">
-                <span>🧰 Skills</span>
-                <strong>Brick Work</strong>
-            </div>
-
-            <div class="detail">
-                <span>🗣️ Languages</span>
-                <strong>Telugu, Hindi</strong>
-            </div>
-
-            <div class="detail">
-                <span>📊 Jobs Completed</span>
-                <strong>48 Jobs</strong>
-            </div>
-
-            <div class="detail">
-                <span>🕐 Working Hours</span>
-                <strong>8 AM - 6 PM</strong>
-            </div>
-
-        </div>
-
-        <!-- About Worker -->
-        <div class="about-worker">
-            <h3>About Worker</h3>
+            <h1>
+                Find Workers.<br>
+                <span>Find Work.</span>
+            </h1>
 
             <p>
-                Experienced mason with 5 years of experience in
-                construction, brick work and plastering.
+                A simple platform where employers can hire skilled workers
+                and workers can find suitable jobs.
             </p>
-        </div>
 
-        <!-- Buttons -->
-        <div class="worker-buttons">
+            <div class="hero-buttons">
 
-            <button 
-                class="contact-btn"
-                onclick="contactWorker()">
-                📞 Contact
-            </button>
+                <a href="#workers" class="primary-btn">
+                    👷 Find Workers
+                </a>
 
-            <button 
-                class="whatsapp-btn"
-                onclick="whatsappWorker()">
-                💬 WhatsApp
-            </button>
+                <a href="Register.html" class="secondary-btn">
+                    💼 Find Work
+                </a>
+
+            </div>
 
         </div>
 
-        <button 
-            class="hire-btn"
-            onclick="hireWorker()">
-            🤝 Hire Worker
-        </button>
+    </section>
 
-    </div>
 
-  </section>
+    <!-- ================= CATEGORIES ================= -->
 
-    <!-- Your existing website -->
+    <section class="categories" id="categories">
 
-    <!-- Paste Worker ID Card here -->
-    <div class="worker-card">
-        ...
-    </div>
+        <div class="section-title">
 
-  </body>
+            <span>POPULAR SERVICES</span>
 
-<!-- NAVBAR -->
-<header class="navbar">
+            <h2>Find Workers For Any Job</h2>
 
-  <div class="logo">
-    <div class="logo-icon">👷</div>
-    <div>
-      <h1>Labour<span>Connect</span></h1>
-      <small>Work • Hire • Grow</small>
-    </div>
-  </div>
+            <p>
+                Connect with workers for different types of work.
+            </p>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#jobs">Find Jobs</a>
-    <a href="#workers">Find Workers</a>
-    <a href="#postjob">Post a Job</a>
-  </nav>
+        </div>
 
-  <div class="auth-buttons">
-    <a href="login.html" class="login-btn">👤 Login</a>
-    <a href="register.html" class="register-btn">Register</a>
-    
-  </div>
 
-</header>
+        <div class="category-grid">
 
+            <div class="category-card">
+                <div class="category-icon">🧱</div>
+                <h3>Mason</h3>
+                <p>Construction and brick work</p>
+            </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
+            <div class="category-card">
+                <div class="category-icon">⚡</div>
+                <h3>Electrician</h3>
+                <p>Electrical installation and repair</p>
+            </div>
 
-  <div class="hero-content">
+            <div class="category-card">
+                <div class="category-icon">🔧</div>
+                <h3>Plumber</h3>
+                <p>Pipe fitting and plumbing work</p>
+            </div>
 
-    <h2>
-      Find Work.<br>
-      Hire Workers.<br>
-      <span>All in One Place.</span>
-    </h2>
+            <div class="category-card">
+                <div class="category-icon">🪚</div>
+                <h3>Carpenter</h3>
+                <p>Furniture and wood work</p>
+            </div>
 
-    <p>
-      LabourConnect connects skilled and unskilled workers
-      with people who need reliable labour, quickly and easily.
-    </p>
+            <div class="category-card">
+                <div class="category-icon">🎨</div>
+                <h3>Painter</h3>
+                <p>House and building painting</p>
+            </div>
 
-    <div class="hero-buttons">
+            <div class="category-card">
+                <div class="category-icon">🌱</div>
+                <h3>Gardener</h3>
+                <p>Garden and landscaping work</p>
+            </div>
 
-      <button class="hire-btn" onclick="hireWorker()">
-        👷 Hire a Labour
-      </button>
+        </div>
 
-      <button class="work-btn" onclick="findWork()">
-        👤 Find Work
-      </button>
+    </section>
 
-    </div>
 
-    <div class="search-box">
+    <!-- ================= HOW IT WORKS ================= -->
 
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search jobs or workers..."
-      >
+    <section class="how-section">
 
-      <button onclick="searchWebsite()">Search</button>
+        <div class="section-title">
 
-    </div>
+            <span>HOW IT WORKS</span>
 
-  </div>
+            <h2>Simple. Fast. Easy.</h2>
 
+        </div>
 
-  <div class="hero-image">
 
-    <div class="worker worker1">👨‍🔧</div>
-    <div class="worker worker2">👷</div>
-    <div class="worker worker3">👩‍🌾</div>
-    <div class="worker worker4">👨‍🌾</div>
-
-  </div>
-
-</section>
-
-
-<!-- POPULAR CATEGORIES -->
-<section class="categories" id="jobs">
-
-  <div class="section-title">
-
-    <div>
-      <h2>Popular Categories</h2>
-      <p>Find workers for different types of work</p>
-    </div>
-
-    <button onclick="showAllCategories()">View All →</button>
-
-  </div>
-
-
-  <div class="category-grid">
-
-    <div class="category construction" onclick="categorySearch('Construction')">
-      <div class="category-icon">🧱</div>
-      <h3>Construction</h3>
-      <p>124+ jobs</p>
-    </div>
-
-    <div class="category painting" onclick="categorySearch('Painting')">
-      <div class="category-icon">🎨</div>
-      <h3>Painting</h3>
-      <p>86+ jobs</p>
-    </div>
-
-    <div class="category cleaning" onclick="categorySearch('Cleaning')">
-      <div class="category-icon">🧹</div>
-      <h3>Cleaning</h3>
-      <p>72+ jobs</p>
-    </div>
-
-    <div class="category farming" onclick="categorySearch('Farming')">
-      <div class="category-icon">🌱</div>
-      <h3>Farming</h3>
-      <p>58+ jobs</p>
-    </div>
-
-    <div class="category plumbing" onclick="categorySearch('Plumbing')">
-      <div class="category-icon">🔧</div>
-      <h3>Plumbing</h3>
-      <p>46+ jobs</p>
-    </div>
-
-    <div class="category electrician" onclick="categorySearch('Electrician')">
-      <div class="category-icon">⚡</div>
-      <h3>Electrician</h3>
-      <p>39+ jobs</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section class="how-it-works">
-
-  <h2>How LabourConnect Works</h2>
-  <p>Simple steps to get you started</p>
-
-
-  <div class="steps">
-
-    <div class="step">
-
-      <div class="step-number">1</div>
-
-      <div class="step-icon">👤</div>
-
-      <h3>Register</h3>
-
-      <p>
-        Create your account as an employer or a worker.
-      </p>
-
-    </div>
-
-
-    <div class="arrow">→</div>
-
-
-    <div class="step">
-
-      <div class="step-number">2</div>
-
-      <div class="step-icon">🔍</div>
-
-      <h3>Search</h3>
-
-      <p>
-        Find the right workers or jobs based on your needs.
-      </p>
-
-    </div>
-
-
-    <div class="arrow">→</div>
-
-
-    <div class="step">
-
-      <div class="step-number">3</div>
-
-      <div class="step-icon">🤝</div>
-
-      <h3>Connect</h3>
-
-      <p>
-        Contact, hire or apply and get to work!
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-  
-
-  <h2>Find Skilled Workers</h2>
-
-  <p>Choose the worker you need</p>
-
-
-  <div class="worker-cards">
-
-    <div class="worker-card">
-      <div class="big-icon">👷</div>
-      <h3>Mason</h3>
-      <p>Construction & building work</p>
-      <button onclick="contactWorker('Mason')">Contact</button>
-    </div>
-
-    <div class="worker-card">
-      <div class="big-icon">🎨</div>
-      <h3>Painter</h3>
-      <p>House & building painting</p>
-      <button onclick="contactWorker('Painter')">Contact</button>
-    </div>
-
-    <div class="worker-card">
-      <div class="big-icon">🔧</div>
-      <h3>Plumber</h3>
-      <p>Pipe & water system work</p>
-      <button onclick="contactWorker('Plumber')">Contact</button>
-    </div>
-
-    <div class="worker-card">
-      <div class="big-icon">⚡</div>
-      <h3>Electrician</h3>
-      <p>Electrical installation & repair</p>
-      <button onclick="contactWorker('Electrician')">Contact</button>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- POST JOB -->
-<section class="post-job" id="postjob">
-
-  <div>
-
-    <h2>Need a Worker?</h2>
-
-    <p>
-      Post your job and find the right worker for your work.
-    </p>
-
-  </div>
-
-  <button onclick="postJob()">Post a Job</button>
-
-</section>
-
-
-</section>
-
-
-<!-- WORKER CARD GOES HERE -->
-
-<section class    border-radius: 24px;
-
-    scroll-snap-align: center;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-
-    transition: transform 0.3s ease;
-}
-
-.worker-card:active {
-    transform: scale(0.97);
-}
-
+        <div class="steps
