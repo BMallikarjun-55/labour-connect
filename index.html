@@ -12,132 +12,431 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- ================= HEADER ================= -->
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="logo">
-            👷 Labour<span>Connect</span>
+    <div class="logo">
+        <div class="logo-icon">👷</div>
+
+        <div>
+            <h2>Labour<span>Connect</span></h2>
+            <p>Work • Hire • Grow</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="#jobs">Find Jobs</a>
+        <a href="#workers">Find Workers</a>
+        <a href="#postjob">Post a Job</a>
+    </nav>
+
+    <div class="nav-buttons">
+
+        <button class="login-btn" onclick="goLogin()">
+            👤 Login
+        </button>
+
+        <button class="register-btn" onclick="goRegister()">
+            Register
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            Find Work.<br>
+            Hire Workers.<br>
+            <span>All in One Place.</span>
+        </h1>
+
+        <p>
+            LabourConnect connects skilled and unskilled workers
+            with people who need reliable labour, quickly and easily.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="hire-btn" onclick="hireLabour()">
+                👷 Hire a Labour
+            </button>
+
+            <button class="find-btn" onclick="findWork()">
+                👤 Find Work
+            </button>
+
         </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#workers">Workers</a>
-            <a href="#team">Our Team</a>
-            <a href="login.html">Login</a>
-            <a href="Register.html" class="nav-register">Register</a>
-        </nav>
 
-    </header>
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search jobs or workers..."
+            >
+
+            <button onclick="searchWorkers()">
+                Search
+            </button>
+
+        </div>
+
+    </div>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- HERO IMAGE AREA -->
 
-    <section class="hero" id="home">
+    <div class="hero-right">
 
-        <div class="hero-content">
+        <div class="hero-slogan">
+            Skilled People<br>
+            Build a<br>
+            Better Tomorrow
+        </div>
 
-            <p class="hero-small">WELCOME TO LABOURCONNECT</p>
+        <div class="workers-image">
 
-            <h1>
-                Find Workers.<br>
-                <span>Find Work.</span>
-            </h1>
+            <div class="person person1">👨‍🔧</div>
+
+            <div class="person person2">👷</div>
+
+            <div class="person person3">👩‍🌾</div>
+
+            <div class="person person4">👨‍🌾</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <div>
+            <h2>Popular Categories</h2>
+        </div>
+
+        <a href="#categories">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <div class="category construction">
+            <div class="category-icon">🧱</div>
+            <h3>Construction</h3>
+            <p>124+ jobs</p>
+        </div>
+
+
+        <div class="category painting">
+            <div class="category-icon">🎨</div>
+            <h3>Painting</h3>
+            <p>86+ jobs</p>
+        </div>
+
+
+        <div class="category cleaning">
+            <div class="category-icon">🧹</div>
+            <h3>Cleaning</h3>
+            <p>72+ jobs</p>
+        </div>
+
+
+        <div class="category farming">
+            <div class="category-icon">🌱</div>
+            <h3>Farming</h3>
+            <p>58+ jobs</p>
+        </div>
+
+
+        <div class="category plumbing">
+            <div class="category-icon">🔧</div>
+            <h3>Plumbing</h3>
+            <p>46+ jobs</p>
+        </div>
+
+
+        <div class="category electrician">
+            <div class="category-icon">⚡</div>
+            <h3>Electrician</h3>
+            <p>39+ jobs</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section">
+
+    <div class="how-title">
+
+        <h2>How LabourConnect Works</h2>
+
+        <p>
+            Simple steps to get you started
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <!-- STEP 1 -->
+
+        <div class="step">
+
+            <div class="step-icon">
+                👤
+            </div>
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div class="step-content">
+
+                <h3>Register</h3>
+
+                <p>
+                    Create your account as an
+                    employer or a worker.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="step">
+
+            <div class="step-icon search-step">
+                🔍
+            </div>
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div class="step-content">
+
+                <h3>Search</h3>
+
+                <p>
+                    Find the right workers or
+                    jobs based on your needs.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="step">
+
+            <div class="step-icon connect-step">
+                🤝
+            </div>
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div class="step-content">
+
+                <h3>Connect</h3>
+
+                <p>
+                    Contact, hire or apply
+                    and get to work!
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <!-- LOGO -->
+
+        <div class="footer-logo">
+
+            <div class="footer-brand">
+                👷
+                <span>Labour<span>Connect</span></span>
+            </div>
 
             <p>
-                A simple platform where employers can hire skilled workers
-                and workers can find suitable jobs.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#workers" class="primary-btn">
-                    👷 Find Workers
-                </a>
-
-                <a href="Register.html" class="secondary-btn">
-                    💼 Find Work
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CATEGORIES ================= -->
-
-    <section class="categories" id="categories">
-
-        <div class="section-title">
-
-            <span>POPULAR SERVICES</span>
-
-            <h2>Find Workers For Any Job</h2>
-
-            <p>
-                Connect with workers for different types of work.
+                Work • Hire • Grow
             </p>
 
         </div>
 
 
-        <div class="category-grid">
+        <!-- QUICK LINKS -->
 
-            <div class="category-card">
-                <div class="category-icon">🧱</div>
-                <h3>Mason</h3>
-                <p>Construction and brick work</p>
-            </div>
+        <div class="footer-column">
 
-            <div class="category-card">
-                <div class="category-icon">⚡</div>
-                <h3>Electrician</h3>
-                <p>Electrical installation and repair</p>
-            </div>
+            <h3>Quick Links</h3>
 
-            <div class="category-card">
-                <div class="category-icon">🔧</div>
-                <h3>Plumber</h3>
-                <p>Pipe fitting and plumbing work</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">🪚</div>
-                <h3>Carpenter</h3>
-                <p>Furniture and wood work</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">🎨</div>
-                <h3>Painter</h3>
-                <p>House and building painting</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">🌱</div>
-                <h3>Gardener</h3>
-                <p>Garden and landscaping work</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= HOW IT WORKS ================= -->
-
-    <section class="how-section">
-
-        <div class="section-title">
-
-            <span>HOW IT WORKS</span>
-
-            <h2>Simple. Fast. Easy.</h2>
+            <a href="index.html">Home</a>
+            <a href="#jobs">Find Jobs</a>
+            <a href="#workers">Find Workers</a>
+            <a href="#postjob">Post a Job</a>
 
         </div>
 
 
-        <div class="steps
+        <!-- SUPPORT -->
+
+        <div class="footer-column">
+
+            <h3>Support</h3>
+
+            <a href="#">Help & FAQ</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+
+        </div>
+
+
+        <!-- SOCIAL -->
+
+        <div class="footer-column social">
+
+            <h3>Follow Us</h3>
+
+            <div class="social-icons">
+
+                <a href="#">f</a>
+                <a href="#">𝕏</a>
+                <a href="#">◎</a>
+                <a href="#">in</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LabourConnect. All rights reserved.
+        </p>
+
+        <p class="footer-slogan">
+            Together for a Better Tomorrow
+        </p>
+
+    </div>
+    <!-- ================= TEAM MEMBERS ================= -->
+
+<section class="team-section">
+
+    <div class="team-title">
+        <h2>Our Team</h2>
+        <p>Meet the people behind LabourConnect</p>
+    </div>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Rishi</h3>
+            <p>Team Member</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Vishal</h3>
+            <p>Team Member</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Harshith</h3>
+            <p>Team Member</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Akshay</h3>
+            <p>Team Member</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">👨‍💻</div>
+            <h3>Mallikarjun</h3>
+            <p>Team Member</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar">👩‍💻</div>
+            <h3>Sahithya Vardhan</h3>
+            <p>Team Member</p>
+        </div>
+
+    </div>
+
+</section>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+    </html>
