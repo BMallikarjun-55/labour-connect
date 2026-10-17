@@ -1,442 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LabourConnect - Find Work & Hire Workers</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<!-- ================= HEADER ================= -->
-
-<header class="navbar">
-
-    <div class="logo">
-        <div class="logo-icon">👷</div>
-
-        <div>
-            <h2>Labour<span>Connect</span></h2>
-            <p>Work • Hire • Grow</p>
+          <div class="f"><label>Daily rate (₹)</label><input id="rRate" type="number" min="100" value="600"></div>
+          <div class="f"><label>Phone</label><input id="rPhone" type="tel"></div>
         </div>
-    </div>
-
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="#jobs">Find Jobs</a>
-        <a href="#workers">Find Workers</a>
-        <a href="#postjob">Post a Job</a>
-    </nav>
-
-    <div class="nav-buttons">
-
-        <button class="login-btn" onclick="goLogin()">
-            👤 Login
-        </button>
-
-        <button class="register-btn" onclick="goRegister()">
-            Register
-        </button>
-
-    </div>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-left">
-
-        <h1>
-            Find Work.<br>
-            Hire Workers.<br>
-            <span>All in One Place.</span>
-        </h1>
-
-        <p>
-            LabourConnect connects skilled and unskilled workers
-            with people who need reliable labour, quickly and easily.
-        </p>
-
-        <div class="hero-buttons">
-
-            <button class="hire-btn" onclick="hireLabour()">
-                👷 Hire a Labour
-            </button>
-
-            <button class="find-btn" onclick="findWork()">
-                👤 Find Work
-            </button>
-
-        </div>
-
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-            <span class="search-icon">⌕</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search jobs or workers..."
-            >
-
-            <button onclick="searchWorkers()">
-                Search
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- HERO IMAGE AREA -->
-
-    <div class="hero-right">
-
-        <div class="hero-slogan">
-            Skilled People<br>
-            Build a<br>
-            Better Tomorrow
-        </div>
-
-        <div class="workers-image">
-
-            <div class="person person1">👨‍🔧</div>
-
-            <div class="person person2">👷</div>
-
-            <div class="person person3">👩‍🌾</div>
-
-            <div class="person person4">👨‍🌾</div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CATEGORIES ================= -->
-
-<section class="categories">
-
-    <div class="section-title">
-
-        <div>
-            <h2>Popular Categories</h2>
-        </div>
-
-        <a href="#categories">
-            View All →
-        </a>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        <div class="category construction">
-            <div class="category-icon">🧱</div>
-            <h3>Construction</h3>
-            <p>124+ jobs</p>
-        </div>
-
-
-        <div class="category painting">
-            <div class="category-icon">🎨</div>
-            <h3>Painting</h3>
-            <p>86+ jobs</p>
-        </div>
-
-
-        <div class="category cleaning">
-            <div class="category-icon">🧹</div>
-            <h3>Cleaning</h3>
-            <p>72+ jobs</p>
-        </div>
-
-
-        <div class="category farming">
-            <div class="category-icon">🌱</div>
-            <h3>Farming</h3>
-            <p>58+ jobs</p>
-        </div>
-
-
-        <div class="category plumbing">
-            <div class="category-icon">🔧</div>
-            <h3>Plumbing</h3>
-            <p>46+ jobs</p>
-        </div>
-
-
-        <div class="category electrician">
-            <div class="category-icon">⚡</div>
-            <h3>Electrician</h3>
-            <p>39+ jobs</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= HOW IT WORKS ================= -->
-
-<section class="how-section">
-
-    <div class="how-title">
-
-        <h2>How LabourConnect Works</h2>
-
-        <p>
-            Simple steps to get you started
-        </p>
-
-    </div>
-
-
-    <div class="steps">
-
-
-        <!-- STEP 1 -->
-
-        <div class="step">
-
-            <div class="step-icon">
-                👤
-            </div>
-
-            <div class="step-number">
-                1
-            </div>
-
-            <div class="step-content">
-
-                <h3>Register</h3>
-
-                <p>
-                    Create your account as an
-                    employer or a worker.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="arrow">
-            →
-        </div>
-
-
-        <!-- STEP 2 -->
-
-        <div class="step">
-
-            <div class="step-icon search-step">
-                🔍
-            </div>
-
-            <div class="step-number">
-                2
-            </div>
-
-            <div class="step-content">
-
-                <h3>Search</h3>
-
-                <p>
-                    Find the right workers or
-                    jobs based on your needs.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="arrow">
-            →
-        </div>
-
-
-        <!-- STEP 3 -->
-
-        <div class="step">
-
-            <div class="step-icon connect-step">
-                🤝
-            </div>
-
-            <div class="step-number">
-                3
-            </div>
-
-            <div class="step-content">
-
-                <h3>Connect</h3>
-
-                <p>
-                    Contact, hire or apply
-                    and get to work!
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="footer-container">
-
-
-        <!-- LOGO -->
-
-        <div class="footer-logo">
-
-            <div class="footer-brand">
-                👷
-                <span>Labour<span>Connect</span></span>
-            </div>
-
-            <p>
-                Work • Hire • Grow
-            </p>
-
-        </div>
-
-
-        <!-- QUICK LINKS -->
-
-        <div class="footer-column">
-
-            <h3>Quick Links</h3>
-
-            <a href="index.html">Home</a>
-            <a href="#jobs">Find Jobs</a>
-            <a href="#workers">Find Workers</a>
-            <a href="#postjob">Post a Job</a>
-
-        </div>
-
-
-        <!-- SUPPORT -->
-
-        <div class="footer-column">
-
-            <h3>Support</h3>
-
-            <a href="#">Help & FAQ</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Privacy Policy</a>
-
-        </div>
-
-
-        <!-- SOCIAL -->
-
-        <div class="footer-column social">
-
-            <h3>Follow Us</h3>
-
-            <div class="social-icons">
-
-                <a href="#">f</a>
-                <a href="#">𝕏</a>
-                <a href="#">◎</a>
-                <a href="#">in</a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 LabourConnect. All rights reserved.
-        </p>
-
-        <p class="footer-slogan">
-            Together for a Better Tomorrow
-        </p>
-
-    </div>
-    <!-- ================= TEAM MEMBERS ================= -->
-
-<section class="team-section">
-
-    <div class="team-title">
-        <h2>Our Team</h2>
-        <p>Meet the people behind LabourConnect</p>
-    </div>
-
-    <div class="team-grid">
-
-        <div class="team-card">
-            <div class="team-avatar">👨‍💻</div>
-            <h3>Rishi</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar">👨‍💻</div>
-            <h3>Vishal</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar">👨‍💻</div>
-            <h3>Harshith</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar">👨‍💻</div>
-            <h3>Akshay</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar">👨‍💻</div>
-            <h3>Mallikarjun</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar">👩‍💻</div>
-            <h3>Sahithya Vardhan</h3>
-            <p>Team Member</p>
-        </div>
-
-    </div>
-
-</section>
-
-</footer>
-
-
-<script src="script.js"></script>
-
+        <button class="btn primary" style="width:100%;justify-content:center">Register</button>
+      </form>
+      <p class="switch">Already registered? <a onclick="openModal('login')">Login</a></p>`,
+    contact:`${close}<h3>Contact Us</h3><p>Email: <b>support@labourconnect.example</b></p><p style="margin-top:8px">We reply within one working day.</p>`,
+    terms:`${close}<h3>Terms &amp; Conditions</h3><p>LabourConnect is a platform that introduces workers and employers. Agree on pay, hours and safety directly before work starts. Do not post false or misleading information.</p>`,
+    privacy:`${close}<h3>Privacy Policy</h3><p>Details you enter are stored only in your own browser on this demo site. Phone numbers you add to a job or worker profile are shown publicly so others can contact you.</p>`
+  };
+  b.innerHTML=views[kind];
+  $('modal').classList.add('open');
+  const f=b.querySelector('input');if(f)f.focus();
+}
+function closeModal(){$('modal').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+/* ---------- auth (demo, browser-only) ---------- */
+async function hash(s){
+  try{const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+    return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+  catch(e){return btoa(s)}
+}
+async function doRegister(e){
+  e.preventDefault();
+  const email=$('rEmail').value.trim().toLowerCase();
+  if(users.some(u=>u.email===email)){toast('That email is already registered');return}
+  const u={name:$('rName').value.trim(),email,pass:await hash($('rPass').value),role:$('rRole').value};
+  users.push(u);store.set('lc_users',users);
+  if(u.role==='worker'){
+    userWorkers.unshift({id:Date.now(),name:u.name,icon:'👷',cat:$('rCat').value,loc:$('rLoc').value.trim()||'Not set',
+      rate:+$('rRate').value||600,exp:1,rating:0,phone:$('rPhone').value.trim(),isNew:true});
+    store.set('lc_workers',userWorkers);
+  }
+  startSession(u);closeModal();toast('Welcome to LabourConnect, '+u.name.split(' ')[0]+'!');
+  renderAll();
+}
+async function doLogin(e){
+  e.preventDefault();
+  const email=$('lEmail').value.trim().toLowerCase();
+  const p=await hash($('lPass').value);
+  const u=users.find(x=>x.email===email&&x.pass===p);
+  if(!u){toast('Incorrect email or password');return}
+  startSession(u);closeModal();toast('Logged in as '+u.name);
+}
+function startSession(u){session={name:u.name,email:u.email,role:u.role};store.set('lc_session',session);paintAuth()}
+function logout(){session=null;store.set('lc_session',null);paintAuth();toast('Logged out')}
+function paintAuth(){
+  $('guestBtns').style.display=session?'none':'flex';
+  $('userChip').style.display=session?'flex':'none';
+  if(session){$('userName').textContent=session.name.split(' ')[0];$('userAv').textContent=session.name[0].toUpperCase();
+    if(!$('fName').value)$('fName').value=session.name}
+}
+
+/* ---------- categories ---------- */
+function counts(){const c={};jobs().forEach(j=>c[j.cat]=(c[j.cat]||0)+1);return c}
+function renderCats(){
+  const c=counts();
+  $('catGrid').innerHTML=CATS.map(x=>`<button class="cat ${curCat===x.n?'on':''}" onclick="setCat('${x.n}')">
+    <div class="ic">${x.i}</div><h3>${x.n}</h3><small>${c[x.n]||0} job${(c[x.n]||0)===1?'':'s'}</small></button>`).join('');
+  const opts='<option value="All">All categories</option>'+CATS.map(x=>`<option ${curCat===x.n?'selected':''}>${x.n}</option>`).join('');
+  $('jobCat').innerHTML=opts;$('wkCat').innerHTML=opts;
+  $('jobCat').value=curCat;$('wkCat').value=curCat;
+  $('fCat').innerHTML=CATS.map(x=>`<option>${x.n}</option>`).join('');
+}
+function setCat(c){curCat=c;renderCats();renderJobs();renderWorkers();
+  if(c!=='All')$('jobs').scrollIntoView({behavior:'smooth'})}
+function syncCat(v){curCat=v;renderCats();renderJobs();renderWorkers()}
+
+/* ---------- jobs ---------- */
+function ago(t){return t<=0?'Just now':t===1?'1 day ago':t+' days ago'}
+function renderJobs(){
+  const q=$('jobQ').value.trim().toLowerCase();
+  let list=jobs().filter(j=>(curCat==='All'||j.cat===curCat)&&
+    (!q||(j.title+j.loc+j.cat+j.desc).toLowerCase().includes(q)));
+  if($('jobSort').value==='pay')list.sort((a,b)=>b.pay-a.pay);
+  $('jobGrid').innerHTML=list.length?list.map(j=>`<article class="card">
+    <span class="tag">${ICON[j.cat]} ${esc(j.cat)}</span>
+    <h3>${esc(j.title)}</h3>
+    <div class="meta"><span>📍 ${esc(j.loc)}</span><span>👥 ${j.n} needed</span><span>🕒 ${ago(j.t)}</span></div>
+    ${j.desc?`<p style="color:var(--muted);font-size:.92rem">${esc(j.desc)}</p>`:''}
+    <div class="row"><span class="price">₹${j.pay}/day</span>
+      <span style="display:flex;gap:6px">
+        <a class="btn small" href="tel:${esc(j.phone)}">📞 Call</a>
+        <button class="btn small primary" onclick="applyJob(${j.id})">${applied.includes(j.id)?'Applied ✓':'Apply'}</button></span></div>
+    <small style="color:var(--muted)">Posted by ${esc(j.by)}</small>
+  </article>`).join(''):'<div class="empty">No jobs match your search. Try another category.</div>';
+  $('stJobs').textContent=jobs().length;
+}
+function applyJob(id){
+  if(!session){toast('Please login or register to apply');openModal('login');return}
+  if(applied.includes(id)){toast('You have already applied');return}
+  applied.push(id);store.set('lc_applied',applied);renderJobs();toast('Application sent!');
+}
+function postJob(e){
+  e.preventDefault();
+  const j={id:Date.now(),title:$('fTitle').value.trim(),cat:$('fCat').value,loc:$('fLoc').value.trim(),
+    pay:+$('fPay').value,n:+$('fWorkers').value||1,by:$('fName').value.trim(),phone:$('fPhone').value.trim(),
+    desc:$('fDesc').value.trim(),t:0};
+  userJobs.unshift(j);store.set('lc_jobs',userJobs);
+  $('jobForm').reset();paintAuth();renderAll();toast('Job posted!');
+  $('jobs').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- workers ---------- */
+function renderWorkers(){
+  const q=$('wkQ').value.trim().toLowerCase();
+  let list=workers().filter(w=>(curCat==='All'||w.cat===curCat)&&
+    (!q||(w.name+w.loc+w.cat).toLowerCase().includes(q)));
+  const s=$('wkSort').value;
+  list.sort((a,b)=>s==='rate'?a.rate-b.rate:s==='exp'?b.exp-a.exp:b.rating-a.rating);
+  $('wkGrid').innerHTML=list.length?list.map(w=>`<article class="card">
+    <div class="worker-top"><div class="avatar">${w.icon}</div>
+      <div><h3>${esc(w.name)}</h3><span class="tag">${ICON[w.cat]} ${esc(w.cat)}</span></div></div>
+    <div class="meta"><span>📍 ${esc(w.loc)}</span><span>🛠 ${w.exp} yr${w.exp===1?'':'s'}</span>
+      <span class="stars">${w.rating?'★ '+w.rating.toFixed(1):'New'}</span></div>
+    <div class="row"><span class="price">₹${w.rate}/day</span>
+      ${w.phone?`<a class="btn small primary" href="tel:${esc(w.phone)}">📞 Contact</a>`:'<span class="meta">No phone listed</span>'}</div>
+  </article>`).join(''):'<div class="empty">No workers match your search.</div>';
+  $('stWorkers').textContent=workers().length;
+}
+
+/* ---------- misc ---------- */
+function heroSearch(e){
+  e.preventDefault();const q=$('heroQ').value.trim();
+  $('jobQ').value=q;$('wkQ').value=q;renderJobs();renderWorkers();
+  $('jobs').scrollIntoView({behavior:'smooth'});
+}
+function renderAll(){renderCats();renderJobs();renderWorkers()}
+
+/* active nav link on scroll */
+const links=[...document.querySelectorAll('nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+  const y=scrollY+120;let cur=0;
+  secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)cur=i});
+  links.forEach((a,i)=>a.classList.toggle('active',i===cur));
+},{passive:true});
+links.forEach(a=>a.addEventListener('click',()=>$('menu').classList.remove('open')));
+
+$('stCats').textContent=CATS.length;
+renderAll();paintAuth();
+</script>
 </body>
-    </html>
+</html>
+    
