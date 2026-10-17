@@ -1,357 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LabourConnect - Find Work & Hire Workers</title>
-<meta name="description" content="LabourConnect connects skilled and unskilled workers with people who need reliable labour, quickly and easily.">
 <style>
-:root{
-  --orange:#f57c00; --orange-d:#e65100; --navy:#12263f; --ink:#1f2937; --muted:#6b7280;
-  --bg:#fffaf3; --card:#ffffff; --line:#eadfce; --green:#2e7d32; --radius:16px;
-  --shadow:0 6px 20px rgba(18,38,63,.08);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-a{color:inherit;text-decoration:none}
+:root{--navy:#12264a;--blue:#0b5ed7;--amber:#fbb117;--ink:#17233d;--muted:#5a6785;--line:#d9e2f1;--sky:#e3f0fd}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 "Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:#fff}
+h1,h2,h3{margin:0;line-height:1.15;color:var(--navy)}
+a{color:inherit;text-decoration:none;cursor:pointer}
 button{font:inherit;cursor:pointer}
-.container{width:min(1140px,92%);margin:0 auto}
-section{padding:64px 0}
-h2.title{font-size:clamp(1.6rem,3vw,2.1rem);color:var(--navy)}
-.sub{color:var(--muted);margin-top:4px}
-.head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:28px}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;border:2px solid var(--orange);font-weight:600;transition:.2s;background:transparent;color:var(--orange-d)}
-.btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--orange);color:#fff}
-.btn.primary:hover{background:var(--orange-d);border-color:var(--orange-d)}
-.btn.small{padding:7px 14px;font-size:.88rem}
-.btn.dark{background:var(--navy);border-color:var(--navy);color:#fff}
-
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo .mark{width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-size:1.4rem}
-.logo b{display:block;font-size:1.2rem;color:var(--navy);line-height:1.1}
-.logo small{color:var(--muted);font-size:.72rem}
-nav ul{display:flex;gap:6px;list-style:none}
-nav a{padding:8px 14px;border-radius:999px;font-weight:500}
-nav a:hover,nav a.active{background:#fff1de;color:var(--orange-d)}
-.auth{display:flex;gap:8px;align-items:center}
-.burger{display:none;background:none;border:0;font-size:1.7rem}
-#userChip{display:none;align-items:center;gap:8px;font-weight:600;color:var(--navy)}
-#userChip .av{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center}
-
-/* hero */
-.hero{padding:56px 0 40px;background:linear-gradient(135deg,#fff3e0 0%,#fffaf3 60%)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.12;color:var(--navy)}
-.hero h1 span{color:var(--orange)}
-.hero p{margin:16px 0 24px;color:#4b5563;font-size:1.08rem;max-width:520px}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.searchbar{margin-top:26px;display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:var(--shadow);max-width:540px}
-.searchbar input{flex:1;border:0;outline:0;padding:0 16px;font:inherit;background:transparent;min-width:0}
-.hero-art{background:linear-gradient(160deg,var(--navy),#1d4068);color:#fff;border-radius:28px;padding:34px;text-align:center;box-shadow:var(--shadow)}
-.hero-art h3{font-size:1.6rem;line-height:1.25;margin-bottom:20px}
-.hero-art .faces{display:flex;justify-content:center;gap:14px;font-size:2.6rem;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
-.stats div{background:rgba(255,255,255,.1);border-radius:12px;padding:10px}
-.stats b{display:block;font-size:1.3rem;color:#ffb74d}
-.stats small{font-size:.75rem;opacity:.85}
-
-/* categories */
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
-.cat{background:var(--card);border:2px solid transparent;border-radius:var(--radius);padding:22px 12px;text-align:center;box-shadow:var(--shadow);transition:.2s;width:100%}
-.cat:hover,.cat.on{border-color:var(--orange);transform:translateY(-3px)}
-.cat .ic{font-size:2.2rem}
-.cat h3{font-size:1.02rem;margin-top:6px;color:var(--navy)}
-.cat small{color:var(--orange-d);font-weight:600}
-
-/* filters */
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
-.filters input,.filters select{padding:11px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff;min-width:0}
-.filters input{flex:1;min-width:200px}
-
-/* cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
-.card h3{color:var(--navy);font-size:1.1rem}
-.tag{display:inline-block;background:#fff1de;color:var(--orange-d);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:600;width:max-content}
-.meta{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted);font-size:.9rem}
-.price{font-weight:700;color:var(--green)}
-.card .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px}
-.worker-top{display:flex;gap:14px;align-items:center}
-.avatar{width:56px;height:56px;border-radius:50%;background:#fff1de;display:grid;place-items:center;font-size:1.9rem;flex:none}
-.stars{color:#f9a825;font-size:.9rem}
-.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.step{background:var(--card);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow);position:relative}
-.step .n{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700}
-.step .ic{font-size:2.3rem}
-.step h3{margin:8px 0 4px;color:var(--navy)}
-.step p{color:var(--muted)}
-
-/* forms */
-.formwrap{background:var(--card);border-radius:24px;padding:30px;box-shadow:var(--shadow);border:1px solid var(--line);max-width:760px;margin:0 auto}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.fgrid .full{grid-column:1/-1}
-label{display:block;font-weight:600;font-size:.9rem;margin-bottom:5px;color:var(--navy)}
-input,select,textarea{width:100%;padding:11px 13px;border:1px solid #d9cdb9;border-radius:12px;font:inherit;background:#fff}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);border-color:transparent}
-textarea{min-height:90px;resize:vertical}
-
-/* team */
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.member{background:var(--card);border-radius:var(--radius);padding:22px 10px;text-align:center;box-shadow:var(--shadow)}
-.member .ic{font-size:2.6rem}
-.member h3{font-size:1rem;color:var(--navy);margin-top:6px}
-.member small{color:var(--muted)}
-
-/* faq */
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px}
-summary{font-weight:600;cursor:pointer;color:var(--navy)}
-details p{margin-top:8px;color:var(--muted)}
-
-/* footer */
-footer{background:var(--navy);color:#cbd5e1;padding:48px 0 20px}
-.fgrid4{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
-footer h4{color:#fff;margin-bottom:10px}
-footer li{list-style:none;margin:6px 0}
-footer a:hover{color:#ffb74d}
-.copy{border-top:1px solid #2c4263;margin-top:30px;padding-top:16px;text-align:center;font-size:.88rem}
-
-/* modal & toast */
-.modal{position:fixed;inset:0;background:rgba(10,20,35,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
-.modal.open{display:flex}
-.box{background:#fff;border-radius:22px;padding:28px;width:min(440px,100%);max-height:92vh;overflow:auto;position:relative}
-.box h3{color:var(--navy);margin-bottom:14px;font-size:1.4rem}
-.box .x{position:absolute;top:12px;right:16px;background:none;border:0;font-size:1.6rem}
-.box .f{margin-bottom:12px}
-.switch{text-align:center;margin-top:12px;color:var(--muted);font-size:.92rem}
-.switch a{color:var(--orange-d);font-weight:600;cursor:pointer}
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--navy);color:#fff;padding:12px 22px;border-radius:999px;transition:.3s;z-index:200;max-width:92%}
-#toast.show{transform:translateX(-50%) translateY(0)}
-
-@media(max-width:860px){
-  .hero-grid,.steps{grid-template-columns:1fr}
-  .fgrid4{grid-template-columns:1fr 1fr}
-  nav{position:absolute;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none;padding:10px 4%}
-  nav.open{display:block}
-  nav ul{flex-direction:column}
-  .burger{display:block}
-}
-@media(max-width:560px){
-  .fgrid{grid-template-columns:1fr}
-  .fgrid4{grid-template-columns:1fr}
-  .auth .btn.small{padding:6px 11px}
-  section{padding:48px 0}
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="container nav">
-    <a href="#home" class="logo">
-      <span class="mark">👷</span>
-      <span><b>LabourConnect</b><small>Work • Hire • Grow</small></span>
-    </a>
-    <nav id="menu">
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#jobs">Find Jobs</a></li>
-        <li><a href="#workers">Find Workers</a></li>
-        <li><a href="#postjob">Post a Job</a></li>
-      </ul>
-    </nav>
-    <div class="auth">
-      <div id="guestBtns" style="display:flex;gap:8px">
-        <button class="btn small" onclick="openModal('login')">👤 Login</button>
-        <button class="btn small primary" onclick="openModal('register')">Register</button>
-      </div>
-      <div id="userChip"><span class="av" id="userAv"></span><span id="userName"></span>
-        <button class="btn small" onclick="logout()">Logout</button></div>
-      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
-    </div>
-  </div>
-</header>
-
-<main>
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div>
-      <h1>Find Work. <span>Hire Workers.</span> All in One Place.</h1>
-      <p>LabourConnect connects skilled and unskilled workers with people who need reliable labour, quickly and easily.</p>
-      <div class="hero-cta">
-        <a href="#workers" class="btn primary">👷 Hire a Labour</a>
-        <a href="#jobs" class="btn">👤 Find Work</a>
-      </div>
-      <form class="searchbar" onsubmit="heroSearch(event)">
-        <input id="heroQ" placeholder="Search painter, plumber, farm work…" aria-label="Search">
-        <button class="btn primary small" type="submit">⌕ Search</button>
-      </form>
-    </div>
-    <div class="hero-art">
-      <h3>Skilled People<br>Build a Better Tomorrow</h3>
-      <div class="faces"><span>👨‍🔧</span><span>👷</span><span>👩‍🌾</span><span>👨‍🌾</span></div>
-      <div class="stats">
-        <div><b id="stJobs">0</b><small>Open jobs</small></div>
-        <div><b id="stWorkers">0</b><small>Workers</small></div>
-        <div><b id="stCats">0</b><small>Categories</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section id="categories">
-  <div class="container">
-    <div class="head">
-      <div><h2 class="title">Popular Categories</h2><p class="sub">Tap a category to filter jobs and workers</p></div>
-      <button class="btn small" onclick="setCat('All')">View All →</button>
-    </div>
-    <div class="cats" id="catGrid"></div>
-  </div>
-</section>
-
-<!-- JOBS -->
-<section id="jobs" style="background:#fff">
-  <div class="container">
-    <div class="head"><div><h2 class="title">Find Jobs</h2><p class="sub">Latest openings from employers near you</p></div></div>
-    <div class="filters">
-      <input id="jobQ" placeholder="Search jobs or location…" oninput="renderJobs()">
-      <select id="jobCat" onchange="syncCat(this.value)"></select>
-      <select id="jobSort" onchange="renderJobs()">
-        <option value="new">Newest first</option>
-        <option value="pay">Highest pay</option>
-      </select>
-    </div>
-    <div class="grid" id="jobGrid"></div>
-  </div>
-</section>
-
-<!-- WORKERS -->
-<section id="workers">
-  <div class="container">
-    <div class="head"><div><h2 class="title">Find Workers</h2><p class="sub">Verified, rated and ready to start</p></div>
-      <button class="btn small primary" onclick="openModal('register')">Join as a worker</button></div>
-    <div class="filters">
-      <input id="wkQ" placeholder="Search by name, skill or location…" oninput="renderWorkers()">
-      <select id="wkCat" onchange="syncCat(this.value)"></select>
-      <select id="wkSort" onchange="renderWorkers()">
-        <option value="rating">Top rated</option>
-        <option value="rate">Lowest rate</option>
-        <option value="exp">Most experience</option>
-      </select>
-    </div>
-    <div class="grid" id="wkGrid"></div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section style="background:#fff">
-  <div class="container">
-    <div class="head" style="justify-content:center;text-align:center"><div><h2 class="title">How LabourConnect Works</h2><p class="sub">Simple steps to get you started</p></div></div>
-    <div class="steps">
-      <div class="step"><span class="n">1</span><div class="ic">👤</div><h3>Register</h3><p>Create your account as an employer or a worker.</p></div>
-      <div class="step"><span class="n">2</span><div class="ic">🔍</div><h3>Search</h3><p>Find the right workers or jobs based on your needs.</p></div>
-      <div class="step"><span class="n">3</span><div class="ic">🤝</div><h3>Connect</h3><p>Contact, hire or apply and get to work!</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- POST A JOB -->
-<section id="postjob">
-  <div class="container">
-    <div class="head" style="justify-content:center;text-align:center"><div><h2 class="title">Post a Job</h2><p class="sub">Free to post. Reach workers in your area today.</p></div></div>
-    <form class="formwrap" id="jobForm" onsubmit="postJob(event)">
-      <div class="fgrid">
-        <div class="full"><label for="fTitle">Job title *</label><input id="fTitle" required maxlength="60" placeholder="e.g. Need 3 painters for a 2BHK flat"></div>
-        <div><label for="fCat">Category *</label><select id="fCat" required></select></div>
-        <div><label for="fLoc">Location *</label><input id="fLoc" required placeholder="City / area"></div>
-        <div><label for="fPay">Pay per day (₹) *</label><input id="fPay" type="number" min="100" required placeholder="800"></div>
-        <div><label for="fWorkers">Workers needed</label><input id="fWorkers" type="number" min="1" value="1"></div>
-        <div><label for="fName">Your name *</label><input id="fName" required></div>
-        <div><label for="fPhone">Phone *</label><input id="fPhone" type="tel" required pattern="[0-9+\s\-]{8,15}" placeholder="98765 43210"></div>
-        <div class="full"><label for="fDesc">Description</label><textarea id="fDesc" maxlength="300" placeholder="Duration, timings, tools provided…"></textarea></div>
-        <div class="full"><button class="btn primary" type="submit" style="width:100%;justify-content:center">Post Job</button></div>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" style="background:#fff">
-  <div class="container">
-    <div class="head" style="justify-content:center;text-align:center"><div><h2 class="title">Our Team</h2><p class="sub">Meet the people behind LabourConnect</p></div></div>
-    <div class="team">
-      <div class="member"><div class="ic">👨‍💻</div><h3>Rishi</h3><small>Team Member</small></div>
-      <div class="member"><div class="ic">👨‍💻</div><h3>Vishal</h3><small>Team Member</small></div>
-      <div class="member"><div class="ic">👨‍💻</div><h3>Harshith</h3><small>Team Member</small></div>
-      <div class="member"><div class="ic">👨‍💻</div><h3>Akshay</h3><small>Team Member</small></div>
-      <div class="member"><div class="ic">👨‍💻</div><h3>Mallikarjun</h3><small>Team Member</small></div>
-      <div class="member"><div class="ic">👩‍💻</div><h3>Sahithya Vardhan</h3><small>Team Member</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="container" style="max-width:780px">
-    <div class="head" style="justify-content:center;text-align:center"><div><h2 class="title">Help &amp; FAQ</h2></div></div>
-    <details><summary>Is LabourConnect free to use?</summary><p>Yes. Registering, browsing and posting jobs are free.</p></details>
-    <details><summary>How do I hire a worker?</summary><p>Browse Find Workers, open a profile and tap Contact. You can also post a job and let workers apply.</p></details>
-    <details><summary>How do workers find jobs?</summary><p>Register as a worker, browse Find Jobs and tap Apply or call the employer directly.</p></details>
-    <details><summary>Are workers verified?</summary><p>Profiles show ratings and experience. Always confirm details and agree on pay before work begins.</p></details>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="fgrid4">
-      <div><h4>👷 LabourConnect</h4><p>Work • Hire • Grow</p></div>
-      <div><h4>Quick Links</h4><ul>
-        <li><a href="#home">Home</a></li><li><a href="#jobs">Find Jobs</a></li>
-        <li><a href="#workers">Find Workers</a></li><li><a href="#postjob">Post a Job</a></li></ul></div>
-      <div><h4>Support</h4><ul>
-        <li><a href="#faq">Help &amp; FAQ</a></li>
-        <li><a href="#" onclick="openModal('contact');return false">Contact Us</a></li>
-        <li><a href="#" onclick="openModal('terms');return false">Terms &amp; Conditions</a></li>
-        <li><a href="#" onclick="openModal('privacy');return false">Privacy Policy</a></li></ul></div>
-      <div><h4>Follow Us</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">X</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
-    </div>
-    <div class="copy">© 2026 LabourConnect. All rights reserved. · Together for a Better Tomorrow</div>
-  </div>
-</footer>
-
-<!-- MODALS -->
-<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="box" id="modalBox"></div>
-</div>
-<div id="toast" role="status"></div>
-
-<script>
-/* ---------- data ---------- */
-const CATS=[
-  {n:'Construction',i:'🧱'},{n:'Painting',i:'🎨'},{n:'Cleaning',i:'🧹'},
-  {n:'Farming',i:'🌱'},{n:'Plumbing',i:'🔧'},{n:'Electrician',i:'⚡'}
-];
-const ICON=Object.fromEntries(CATS.map(c=>[c.n,c.i]));
-const SEED_JOBS=[
-  {id:1,title:'Mason needed for house construction',cat:'Construction',loc:'Hyderabad',pay:900,n:4,by:'Ramesh Builders',phone:'9876500001',desc:'2 month project, lunch provided.',t:6},
-  {id:2,title:'Interior painters for 3BHK',cat:'Painting',loc:'Bengaluru',pay:850,n:3,by:'Suresh K',phone:'9876500002',desc:'Putty and two coats, materials supplied.',t:5},
-  {id:3,title:'Office deep cleaning staff',cat:'Cleaning',loc:'Chennai',pay:600,n:5,by:'BrightSpace Pvt Ltd',phone:'9876500003',desc:'Weekend work, equipment provided.',t:4},
-  {id:4,title:'Harvest helpers for paddy fields',cat:'Farming',loc:'Guntur',pay:550,n:10,by:'Venkat Reddy',phone:'9876500004',desc:'15 days, morning shift.',t:3},
-  {id:5,title:'Plumber for bathroom fitting',cat:'Plumbing',loc:'Mumbai',pay:1000,n:1,by:'Anita Sharma',phone:'9876500005',desc:'Two bathrooms, own tools preferred.',t:2},
-  {id:6,title:'Electrician for wiring work',cat:'Electrician',loc:'Pune',pay:1100,n:2,by:'Kiran Electricals',phone:'9876500006',desc:'New apartment wiring, 1 week.',t:1}
-];
-const SEED_WORKERS=[
-  {id:1,name:'Ravi Kumar',icon:'👷',cat:'Construction',loc:'Hyderabad',rate:850,exp:8,rating:4.8,phone:'9123400001'},
-  {id:2,name:'Mohan Das',icon:'👨‍🔧',cat:'Painting',loc:'Bengaluru',rate:800,exp:6,rating:4.6,phone:'
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:2px solid transparent;border-radius:10px;padding:13px 24px;font-weight:700}
+.b-blue{background:var(--blue);color:#fff}.b-blue:hover{background:#094db0}
+.b-amber{background:var(--amber);color:var(--navy)}
+.b-out{background:#fff;border-color:var(--line);color:var(--navy)}
+.b-line{background:transparent;border-color:#fff;color:#fff;padding:9px 20px}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30}
+.nav{display:flex;align-items:center;gap:32px;height:74px}
+.logo{font:800 28px "Segoe UI",sans-serif;display:flex;align-items:center;gap:10px}
+.logo b{color:var(--amber)}.logo small{display:block;font:400 12px/1 sans-serif;letter-spacing:.08em;opacity:.85;margin-top:3px}
+.menu{display:flex;gap:30px;margin:0 auto 0 12px}
+.menu a{padding:8px 0;border-bottom:3px solid transparent;font-weight:500}
+.menu a.on{border-color:var(--amber)}
+.acct{display:flex;gap:12px;align-items:center}
+.hi{font-weight:600}
+@media(max-width:860px){.menu{display:none}.nav{gap:12px}.logo small{display:none}.logo{font-size:22px}.hi{display:none}}
+.hero{background:linear-gradient(120deg,var(--sky),#eef6ff);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;min-height:460px}
+.hero h1{font-size:clamp(36px,5vw,58px);font-weight:800}
+.hero h1 em{display:block;color:var(--amber);font-style:normal}
+.hero p{font-size:18px;margin:20px 0 26px;max-width:46ch}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.sbar{display:flex;margin-top:26px;max-width:520px;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.sbar input{flex:1;border:0;padding:14px 16px;font:inherit;min-width:0}
