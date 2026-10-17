@@ -1,90 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Login - LabourConnect</title>
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - LabourConnect</title>
+<style>
+:root{--orange:#f57c00;--orange-d:#e65100;--navy:#12263f;--muted:#6b7280;--line:#eadfce}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:linear-gradient(135deg,#fff3e0,#fffaf3 60%);min-height:100vh;display:grid;place-items:center;padding:20px;color:#1f2937}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px 30px;width:min(420px,100%);box-shadow:0 6px 20px rgba(18,38,63,.08)}
+.logo{text-align:center;margin-bottom:6px}
+.logo .mark{width:56px;height:56px;border-radius:16px;background:var(--orange);display:inline-grid;place-items:center;font-size:1.8rem}
+h1{text-align:center;color:var(--navy);font-size:1.6rem;margin-top:10px}
+p.sub{text-align:center;color:var(--muted);margin:4px 0 22px}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:5px;color:var(--navy)}
+.f{margin-bottom:14px}
+input{width:100%;padding:12px 13px;border:1px solid #d9cdb9;border-radius:12px;font:inherit}
+input:focus{outline:2px solid var(--orange);border-color:transparent}
+button{width:100%;padding:12px;border:0;border-radius:999px;background:var(--orange);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+button:hover{background:var(--orange-d)}
+.msg{margin-bottom:12px;padding:10px 12px;border-radius:10px;font-size:.9rem;display:none}
+.msg.err{display:block;background:#fdecea;color:#b71c1c}
+.msg.ok{display:block;background:#e8f5e9;color:#2e7d32}
+.links{text-align:center;margin-top:16px;font-size:.92rem;color:var(--muted)}
+.links a{color:var(--orange-d);font-weight:600}
+</style>
 </head>
-
 <body>
-
-<div class="login-page">
-
-  <div class="login-card">
-
-    <div class="login-logo">
-      👷
-    </div>
-
-    <h1>LabourConnect</h1>
-
-    <p>Login to your account</p>
-
-    <form onsubmit="loginUser(event)">
-
-      <label>Email or Phone</label>
-
-      <input
-        type="text"
-        id="loginEmail"
-        placeholder="Enter email or phone"
-        required
-      >
-
-      <label>Password</label>
-
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter password"
-        required
-      >
-
-      <button type="submit">
-        Login
-      </button>
-
-    </form>
-
-    <p class="signup-text">
-      Don't have an account?
-      <a href="register.html">Register</a>
-    </p>
-
-    <a class="back-home" href="index.html">
-      ← Back to Home
-    </a>
-
-  </div>
-
-</div>
-
+<main class="card">
+  <div class="logo"><span class="mark">👷</span></div>
+  <h1>LabourConnect</h1>
+  <p class="sub">Login to your account</p>
+  <div id="msg" class="msg" role="alert"></div>
+  <form id="form">
+    <div class="f"><label for="email">Email</label><input id="email" type="email" required autocomplete="email"></div>
+    <div class="f"><label for="pass">Password</label><input id="pass" type="password" required autocomplete="current-password"></div>
+    <button type="submit">Login</button>
+  </form>
+  <p class="links">New here? <a href="Register.html">Create an account</a><br><br><a href="index.html">← Back to home</a></p>
+</main>
 <script>
-
-function loginUser(event) {
-
-  event.preventDefault();
-
-  const email =
-    document.getElementById("loginEmail").value;
-
-  const password =
-    document.getElementById("loginPassword").value;
-
-  if (email && password) {
-
-    alert("Login successful!");
-
-    window.location.href = "index.html";
-
-  }
-
+const store={
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+async function hash(s){
+  try{const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+    return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+  catch(e){return btoa(s)}
 }
-
+const msg=document.getElementById('msg');
+document.getElementById('form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const email=document.getElementById('email').value.trim().toLowerCase();
+  const p=await hash(document.getElementById('pass').value);
+  const u=store.get('lc_users',[]).find(x=>x.email===email&&x.pass===p);
+  if(!u){msg.className='msg err';msg.textContent='Incorrect email or password.';return}
+  store.set('lc_session',{name:u.name,email:u.email,role:u.role});
+  msg.className='msg ok';msg.textContent='Login successful. Redirecting…';
+  setTimeout(()=>location.href='index.html',700);
+});
 </script>
-
 </body>
 </html>
