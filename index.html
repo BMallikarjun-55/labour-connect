@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LabourConnect - Find Work & Hire Workers</title>
+<style>
+:root{--navy:#12264a;--blue:#0b5ed7;--amber:#fbb117;--ink:#17233d;--muted:#5a6785;--line:#d9e2f1;--sky:#e3f0fd}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 "Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:#fff}
+h1,h2,h3{margin:0;line-height:1.15;color:var(--navy)}
+a{color:inherit;text-decoration:none;cursor:pointer}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:2px solid transparent;border-radius:10px;padding:13px 24px;font-weight:700}
+.b-blue{background:var(--blue);color:#fff}.b-blue:hover{background:#094db0}
+.b-amber{background:var(--amber);color:var(--navy)}
+.b-out{background:#fff;border-color:var(--line);color:var(--navy)}
+.b-line{background:transparent;border-color:#fff;color:#fff;padding:9px 20px}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30}
+.nav{display:flex;align-items:center;gap:32px;height:74px}
+.logo{font:800 28px "Segoe UI",sans-serif;display:flex;align-items:center;gap:10px}
+.logo b{color:var(--amber)}.logo small{display:block;font:400 12px/1 sans-serif;letter-spacing:.08em;opacity:.85;margin-top:3px}
+.menu{display:flex;gap:30px;margin:0 auto 0 12px}
+.menu a{padding:8px 0;border-bottom:3px solid transparent;font-weight:500}
+.menu a.on{border-color:var(--amber)}
+.acct{display:flex;gap:12px;align-items:center}
+.hi{font-weight:600}
+@media(max-width:860px){.menu{display:none}.nav{gap:12px}.logo small{display:none}.logo{font-size:22px}.hi{display:none}}
+.hero{background:linear-gradient(120deg,var(--sky),#eef6ff);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:20px;min-height:460px}
+.hero h1{font-size:clamp(36px,5vw,58px);font-weight:800}
+.hero h1 em{display:block;color:var(--amber);font-style:normal}
+.hero p{font-size:18px;margin:20px 0 26px;max-width:46ch}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.sbar{display:flex;margin-top:26px;max-width:520px;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.sbar input{flex:1;border:0;padding:14px 16px;font:inherit;min-width:0}
+.sbar button{border:0;background:var(--blue);color:#fff;font-weight:700;padding:0 28px}
+.art{width:100%;max-height:440px}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-top:36px}}
+section{padding:60px 0}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px;gap:12px}
+.head h2{font-size:32px}.head a{color:var(--blue);font-weight:700}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px}
+.cat{border:0;border-radius:14px;padding:26px 12px;text-align:center;color:var(--navy);font-weight:700;font-size:17px}
+.cat svg{width:40px;height:40px;display:block;margin:0 auto 10px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cat span{display:block;font-weight:400;color:var(--muted);font-size:15px}
+.cat:hover{transform:translateY(-3px)}
+.how{background:#f2f7fe}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+.step{display:flex;gap:18px;align-items:flex-start}
+.ic{flex:none;width:84px;height:84px;border-radius:50%;display:grid;place-items:center}
+.ic svg{width:40px;height:40px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px}
+.step h3{font-size:22px;margin:6px 0 4px}.step p{margin:0;color:var(--muted)}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.page{display:none;padding:44px 0 70px;min-height:60vh}
+.filters{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 26px}
+.filters input,.filters select{padding:12px 14px;border:2px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+.filters input{flex:1;min-width:200px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:20px}.card p{margin:0;color:var(--muted)}
+.tag{align-self:flex-start;background:var(--sky);color:var(--blue);font-weight:600;font-size:13px;padding:3px 10px;border-radius:99px}
+.card .btn{margin-top:auto;align-self:flex-start;padding:9px 18px}
+.card .row{margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.empty{padding:40px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:14px;grid-column:1/-1}
+footer{background:var(--navy);color:#cfd8ea;padding:46px 0 22px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer h4{color:#fff;margin:0 0 10px}footer a{display:block;font-size:14px;margin:6px 0}footer a:hover{color:var(--amber)}
+.fb{border-top:1px solid #2a4068;margin-top:30px;padding-top:18px;text-align:center;font-size:14px}
+.soc{display:flex;gap:10px}.soc a{width:34px;height:34px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:700;margin:0;color:#fff}
+@media(max-width:760px){.fg{grid-template-columns:1fr 1fr}}
+#ov{position:fixed;inset:0;background:rgba(10,20,42,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+#ov.show{display:flex}
+.mod{background:#fff;border-radius:16px;width:100%;max-width:440px;max-height:92vh;overflow:auto;padding:30px;position:relative}
+.mod h2{font-size:26px;margin-bottom:6px}.mod .sub{color:var(--muted);margin:0 0 18px}
+.x{position:absolute;right:14px;top:10px;border:0;background:none;font-size:30px;color:var(--muted)}
+.mod label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+.mod input,.mod select,.mod textarea{width:100%;padding:12px;border:2px solid var(--line);border-radius:10px;font:inherit}
+.mod .btn{width:100%;justify-content:center;margin-top:18px}
+.sw{text-align:center;margin-top:14px;color:var(--muted);font-size:15px}.sw a{color:var(--blue);font-weight:700}
+.mod .txt p,.mod .txt li{color:var(--muted)}.mod .txt h3{font-size:17px;margin-top:14px}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,90px);background:var(--navy);color:#fff;padding:13px 22px;border-radius:10px;z-index:60;transition:transform .25s;border-left:5px solid var(--amber)}
+#toast.show{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" onclick="go('home')" aria-label="LabourConnect home">
+    <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true"><path d="M9 38c0-8 5-12 12-12s12 4 12 12z" fill="#fbb117"/><circle cx="21" cy="17" r="7" fill="#ffd36b"/><path d="M12 15a9 9 0 0 1 18 0z" fill="#fbb117"/><rect x="10" y="14" width="22" height="3" rx="1.5" fill="#fbb117"/></svg>
+    <div>Labour<b>Connect</b><small>Work • Hire • Grow</small></div></a>
+  <nav class="menu" aria-label="Main">
+    <a id="n-home" onclick="go('home')">Home</a><a id="n-jobs" onclick="go('jobs')">Find Jobs</a>
+    <a id="n-workers" onclick="go('workers')">Find Workers</a><a onclick="openPost()">Post a Job</a></nav>
+  <div class="acct" id="acct"></div>
+</div></header>
+
+<main>
+<div id="v-home">
+  <div class="hero"><div class="wrap">
+    <div>
+      <h1>Find Work.<br>Hire Workers.<em>All in One Place.</em></h1>
+      <p>LabourConnect connects skilled and unskilled workers with people who need reliable labour, quickly and easily.</p>
+      <div class="cta"><button class="btn b-blue" onclick="go('workers')">Hire a Labour</button><button class="btn b-out" onclick="go('jobs')">Find Work</button></div>
+      <form class="sbar" onsubmit="homeSearch(event)"><input id="hq" placeholder="Search jobs or workers..." aria-label="Search"><button>Search</button></form>
+    </div>
+    <svg class="art" viewBox="0 0 440 400" role="img" aria-label="Four smiling workers">
+      <path d="M30 400V150c40-40 80 0 120-30s90-60 140-20 110-10 150 30v270z" fill="#c4def8"/>
+      <g fill="#a9cdf3"><rect x="300" y="80" width="6" height="150"/><rect x="250" y="84" width="150" height="6"/><rect x="60" y="120" width="26" height="150"/></g>
+      <g><path d="M30 400c0-60 20-100 58-100s58 40 58 100z" fill="#1d4ea0"/><circle cx="88" cy="248" r="26" fill="#c98a5e"/><path d="M62 244a26 22 0 0 1 52 0z" fill="#1d4ea0"/></g>
+      <g><path d="M300 400c0-60 20-100 58-100s58 40 58 100z" fill="#2a3550"/><circle cx="358" cy="240" r="26" fill="#c98a5e"/><path d="M332 236a26 22 0 0 1 52 0z" fill="#2a3550"/></g>
+      <g><path d="M150 400c0-50 15-90 55-90s55 40 55 90z" fill="#14935a"/><circle cx="205" cy="250" r="25" fill="#d79a70"/><path d="M180 248a25 28 0 0 1 50 0z" fill="#c1444c"/></g>
+      <g><path d="M120 400V250c0-40 40-70 100-70s100 30 100 70v150z" fill="#f08a1c"/><path d="M175 190l45 70 45-70" fill="#4a5568"/><rect x="120" y="330" width="200" height="14" fill="#f6dc7d" opacity=".7"/><circle cx="220" cy="140" r="38" fill="#c98a5e"/><path d="M178 132a42 42 0 0 1 84 0z" fill="#ffc82c"/><rect x="170" y="128" width="100" height="10" rx="5" fill="#ffc82c"/><path d="M205 158q15 14 30 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+      <text x="330" y="40" font-family="cursive" font-size="20" fill="#12264a" text-anchor="middle" font-style="italic">Skilled People</text>
+      <text x="330" y="64" font-family="cursive" font-size="20" fill="#12264a" text-anchor="middle" font-style="italic">Build a Better Tomorrow</text>
+    </svg>
+  </div></div>
+
+  <section><div class="wrap">
+    <div class="head"><h2>Popular Categories</h2><a onclick="go('jobs')">View All →</a></div>
+    <div class="cats" id="cats"></div>
+  </div></section>
+
+  <section class="how"><div class="wrap">
+    <h2 style="font-size:32px">How LabourConnect Works</h2><p style="color:var(--muted);margin:4px 0 30px">Simple steps to get you started</p>
+    <div class="steps">
+      <div class="step"><div class="ic" style="background:#cfe5fb"><svg viewBox="0 0 24 24" stroke="#0b5ed7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><span class="num" style="background:#0b5ed7">1</span><h3>Register</h3><p>Create your account as an employer or a worker.</p></div></div>
+      <div class="step"><div class="ic" style="background:#cdf1e0"><svg viewBox="0 0 24 24" stroke="#14935a"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg></div><div><span class="num" style="background:#14935a">2</span><h3>Search</h3><p>Find the right workers or jobs based on your needs.</p></div></div>
+      <div class="step"><div class="ic" style="background:#e1d9f8"><svg viewBox="0 0 24 24" stroke="#6a45c9"><path d="M3 11l5-4 4 2 4-2 5 4-8 8z"/></svg></div><div><span class="num" style="background:#6a45c9">3</span><h3>Connect</h3><p>Contact, hire or apply and get to work!</p></div></div>
+    </div>
+  </div></section>
+</div>
+
+<div class="page" id="v-jobs"><div class="wrap">
+  <h2 style="font-size:34px">Find Jobs</h2><p style="color:var(--muted);margin:6px 0 0">Browse open jobs and apply in one click.</p>
+  <div class="filters"><input id="jq" placeholder="Search jobs..." oninput="renderJobs()" aria-label="Search jobs"><select id="jc" onchange="renderJobs()" aria-label="Category"></select><button class="btn b-amber" onclick="openPost()">Post a Job</button></div>
+  <div class="list" id="jobs"></div>
+</div></div>
+
+<div class="page" id="v-workers"><div class="wrap">
+  <h2 style="font-size:34px">Find Workers</h2><p style="color:var(--muted);margin:6px 0 0">Contact skilled and unskilled workers directly.</p>
+  <div class="filters"><input id="wq" placeholder="Search workers..." oninput="renderWorkers()" aria-label="Search workers"><select id="wc" onchange="renderWorkers()" aria-label="Category"></select></div>
+  <div class="list" id="workers"></div>
+</div></div>
+</main>
+
+<footer><div class="wrap">
+  <div class="fg">
+    <div><div class="logo" style="font-size:24px">Labour<b>Connect</b></div><p style="font-size:14px">Work • Hire • Grow</p></div>
+    <div><h4>Quick Links</h4><a onclick="go('home')">Home</a><a onclick="go('jobs')">Find Jobs</a><a onclick="go('workers')">Find Workers</a><a onclick="openPost()">Post a Job</a></div>
+    <div><h4>Support</h4><a onclick="info('faq')">Help & FAQ</a><a onclick="openContact()">Contact Us</a><a onclick="info('terms')">Terms & Conditions</a><a onclick="info('privacy')">Privacy Policy</a></div>
+    <div><h4>Follow Us</h4><div class="soc"><a onclick="toast('Facebook page coming soon')">f</a><a onclick="toast('X page coming soon')">X</a><a onclick="toast('Instagram page coming soon')">in</a><a onclick="toast('LinkedIn page coming soon')">Li</a></div></div>
+  </div>
+  <div class="fb">© 2026 LabourConnect. All rights reserved. &nbsp;|&nbsp; Together for a Better Tomorrow</div>
+</div></footer>
+
+<div id="ov" onclick="if(event.target===this)closeM()"><div class="mod" role="dialog" aria-modal="true" id="mod"></div></div>
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const put=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const CATS=[
+ ['Construction','#ffe6dc','#d6492b','124+','<rect x="3" y="5" width="8" height="4"/><rect x="13" y="5" width="8" height="4"/><rect x="3" y="11" width="18" height="4"/><rect x="3" y="17" width="8" height="3"/><rect x="13" y="17" width="8" height="3"/>'],
+ ['Painting','#ece8fb','#4a4fc4','86+','<rect x="4" y="3" width="14" height="6" rx="1"/><path d="M18 6h2v5h-8v4"/><rect x="10" y="15" width="4" height="6"/>'],
+ ['Cleaning','#d8f5e5','#14935a','72+','<path d="M15 3l-4 9"/><path d="M7 12h10l2 9H5z"/>'],
+ ['Farming','#fff3d1','#2e9a45','58+','<path d="M12 21v-9"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 15c0-3-2-5-6-5 0 3 2 5 6 5z"/>'],
+ ['Plumbing','#dfeafb','#3866b8','46+','<path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.6-.6-2.6z"/>'],
+ ['Electrician','#f9e1f6','#a93ca0','39+','<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>']];
+const JOBS=[
+ {t:'Mason needed for house build',c:'Construction',l:'Hyderabad',w:'₹900 / day',d:'2 months of brickwork on a residential site.'},
+ {t:'Interior wall painter',c:'Painting',l:'Bengaluru',w:'₹800 / day',d:'Painting 3 flats, materials provided.'},
+ {t:'Office cleaning staff',c:'Cleaning',l:'Chennai',w:'₹15,000 / month',d:'Morning shift, Monday to Saturday.'},
+ {t:'Harvest helpers (10)',c:'Farming',l:'Guntur',w:'₹600 / day',d:'Two-week paddy harvest, meals included.'},
+ {t:'Plumber for new apartment block',c:'Plumbing',l:'Pune',w:'₹1,100 / day',d:'Pipe fitting and fixture installation.'},
+ {t:'Electrician for wiring work',c:'Electrician',l:'Mumbai',w:'₹1,200 / day',d:'Full wiring for a 2BHK renovation.'}];
+const WORKERS=[
+ {n:'Ravi Kumar',c:'Construction',l:'Hyderabad',e:'8 yrs',r:'₹900 / day'},
+ {n:'Suresh Babu',c:'Painting',l:'Bengaluru',e:'5 yrs',r:'₹800 / day'},
+ {n:'Lakshmi Devi',c:'Cleaning',l:'Chennai',e:'4 yrs',r:'₹700 / day'},
+ {n:'Ramesh Naik',c:'Farming',l:'Guntur',e:'10 yrs',r:'₹600 / day'},
+ {n:'Imran Sheikh',c:'Plumbing',l:'Pune',e:'6 yrs',r:'₹1,000 / day'},
+ {n:'Anil Reddy',c:'Electrician',l:'Mumbai',e:'7 yrs',r:'₹1,200 / day'}];
+const user=()=>get('lc_user',null);
+const allJobs=()=>[...get('lc_jobs',[]),...JOBS];
+
+/* routing */
+function go(v,opt={}){
+  ['home','jobs','workers'].forEach(x=>{$('#v-'+x).style.display=x===v?'block':'none';$('#n-'+x).classList.toggle('on',x===v)});
+  if(opt.q!==undefined){$(v==='jobs'?'#jq':'#wq').value=opt.q}
+  if(opt.c!==undefined){$(v==='jobs'?'#jc':'#wc').value=opt.c}
+  if(v==='jobs')renderJobs(); if(v==='workers')renderWorkers();
+  scrollTo({top:0});
+}
+function homeSearch(e){e.preventDefault();go('jobs',{q:$('#hq').value,c:'All'})}
+function fillSel(id){$(id).innerHTML='<option>All</option>'+CATS.map(c=>`<option>${c[0]}</option>`).join('')}
+function renderJobs(){
+  const q=$('#jq').value.toLowerCase(),c=$('#jc').value;
+  const L=allJobs().filter(j=>(c==='All'||j.c===c)&&(j.t+j.l+j.d+j.c).toLowerCase().includes(q));
+  $('#jobs').innerHTML=L.length?L.map(j=>`<div class="card"><span class="tag">${esc(j.c)}</span><h3>${esc(j.t)}</h3><p>${esc(j.d)}</p><p>${esc(j.l)}</p>
+   <div class="row"><b>${esc(j.w)}</b><button class="btn b-blue" onclick='apply(${JSON.stringify(j.t)})'>Apply</button></div></div>`).join(''):'<div class="empty">No jobs match your search. Try a different word or category.</div>';
+}
+function renderWorkers(){
+  const q=$('#wq').value.toLowerCase(),c=$('#wc').value;
+  const L=WORKERS.filter(w=>(c==='All'||w.c===c)&&(w.n+w.l+w.c).toLowerCase().includes(q));
+  $('#workers').innerHTML=L.length?L.map(w=>`<div class="card"><span class="tag">${w.c}</span><h3>${w.n}</h3><p>${w.l} · ${w.e} experience</p>
+   <div class="row"><b>${w.r}</b><button class="btn b-blue" onclick='hire(${JSON.stringify(w.n)})'>Contact</button></div></div>`).join(''):'<div class="empty">No workers match your search.</div>';
+}
+
+/* account bar */
+function renderAcct(){
+  const u=user();
+  $('#acct').innerHTML=u?`<span class="hi">Hi, ${esc(u.name.split(' ')[0])} (${u.role})</span><button class="btn b-line" onclick="logout()">Log out</button>`
+   :`<button class="btn b-line" onclick="openLogin()">Login</button><button class="btn b-amber" style="padding:10px 22px" onclick="openRegister()">Register</button>`;
+}
+
+/* modals */
+function modal(h){$('#mod').innerHTML='<button class="x" onclick="closeM()" aria-label="Close">×</button>'+h;$('#ov').classList.add('show');const f=$('#mod input,#mod textarea');if(f)f.focus()}
+function closeM(){$('#ov').classList.remove('show')}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2800)}
+
+function openLogin(){modal(`<h2>Welcome back</h2><p class="sub">Log in to apply, hire and post jobs.</p>
+ <form onsubmit="doLogin(event)"><label for="e">Email</label><input id="e" type="email" required><label for="p">Password</label><input id="p" type="password" required>
+ <button class="btn b-blue">Log in</button></form><p class="sw">New here? <a onclick="openRegister()">Create an account</a></p>`)}
+function openRegister(){modal(`<h2>Create your account</h2><p class="sub">Join as a worker or an employer.</p>
+ <form onsubmit="doRegister(event)"><label for="n">Full name</label><input id="n" required><label for="e">Email</label><input id="e" type="email" required>
+ <label for="p">Password (6+ characters)</label><input id="p" type="password" minlength="6" required>
+ <label for="r">I am a</label><select id="r"><option>Worker</option><option>Employer</option></select>
+ <button class="btn b-blue">Register</button></form><p class="sw">Already registered? <a onclick="openLogin()">Log in</a></p>`)}
+function doRegister(e){e.preventDefault();const us=get('lc_users',[]),em=$('#e').value.trim().toLowerCase();
+ if(us.some(u=>u.email===em))return toast('That email is already registered. Please log in.');
+ const u={name:$('#n').value.trim(),email:em,pw:$('#p').value,role:$('#r').value};us.push(u);put('lc_users',us);put('lc_user',{name:u.name,email:em,role:u.role});
+ closeM();renderAcct();toast('Welcome, '+u.name.split(' ')[0]+'! Your account is ready.')}
+function doLogin(e){e.preventDefault();const em=$('#e').value.trim().toLowerCase(),u=get('lc_users',[]).find(x=>x.email===em&&x.pw===$('#p').value);
+ if(!u)return toast('Email or password is incorrect.');put('lc_user',{name:u.name,email:em,role:u.role});closeM();renderAcct();toast('Logged in as '
