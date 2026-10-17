@@ -1,115 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LabourConnect - Worker Registration</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LabourConnect - Worker Registration</title>
+<style>
+:root{--orange:#f57c00;--orange-d:#e65100;--navy:#12263f;--muted:#6b7280;--line:#eadfce}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:linear-gradient(135deg,#fff3e0,#fffaf3 60%);min-height:100vh;display:grid;place-items:center;padding:20px;color:#1f2937}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px 30px;width:min(460px,100%);box-shadow:0 6px 20px rgba(18,38,63,.08)}
+.logo{text-align:center;margin-bottom:6px}
+.logo .mark{width:56px;height:56px;border-radius:16px;background:var(--orange);display:inline-grid;place-items:center;font-size:1.8rem}
+h1{text-align:center;color:var(--navy);font-size:1.6rem;margin-top:10px}
+p.sub{text-align:center;color:var(--muted);margin:4px 0 22px}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:5px;color:var(--navy)}
+.f{margin-bottom:14px}
+input,select{width:100%;padding:12px 13px;border:1px solid #d9cdb9;border-radius:12px;font:inherit;background:#fff}
+input:focus,select:focus{outline:2px solid var(--orange);border-color:transparent}
+button{width:100%;padding:12px;border:0;border-radius:999px;background:var(--orange);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+button:hover{background:var(--orange-d)}
+.msg{margin-bottom:12px;padding:10px 12px;border-radius:10px;font-size:.9rem;display:none}
+.msg.err{display:block;background:#fdecea;color:#b71c1c}
+.msg.ok{display:block;background:#e8f5e9;color:#2e7d32}
+.links{text-align:center;margin-top:16px;font-size:.92rem;color:var(--muted)}
+.links a{color:var(--orange-d);font-weight:600}
+#wk{display:none}
+</style>
 </head>
-
 <body>
-
-<div class="register-container">
-
-    <h1>LabourConnect</h1>
-    <h2>Worker Registration</h2>
-
-    <form id="workerForm">
-
-        <input type="text" id="workerId" placeholder="Worker ID" required>
-
-        <input type="text" id="name" placeholder="Full Name" required>
-
-        <input type="text" id="workType" placeholder="Work Type" required>
-
-        <input type="number" id="experience" placeholder="Experience (Years)" required>
-
-        <input type="text" id="location" placeholder="Location" required>
-
-        <input type="number" id="wage" placeholder="Daily Wage ₹" required>
-
-        <input type="text" id="skills" placeholder="Skills" required>
-
-        <input type="text" id="languages" placeholder="Languages" required>
-
-        <input type="tel" id="phone" placeholder="Phone Number" required>
-
-        <button type="submit">Register Worker</button>
-
-    </form>
-
-    <p id="message"></p>
-
-</div>
-
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-    getFirestore,
-    collection,
-    addDoc
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-// 🔴 PASTE YOUR FIREBASE CONFIG HERE
-
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-
-document.getElementById("workerForm").addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    try {
-
-        await addDoc(collection(db, "workers"), {
-
-            workerId: document.getElementById("workerId").value,
-            name: document.getElementById("name").value,
-            workType: document.getElementById("workType").value,
-            experience: document.getElementById("experience").value,
-            location: document.getElementById("location").value,
-            wage: document.getElementById("wage").value,
-            skills: document.getElementById("skills").value,
-            languages: document.getElementById("languages").value,
-            phone: document.getElementById("phone").value,
-
-            createdAt: new Date()
-
-        });
-
-        document.getElementById("message").innerText =
-            "✅ Worker registered successfully!";
-
-        document.getElementById("workerForm").reset();
-
-    } catch (error) {
-
-        console.error(error);
-
-        document.getElementById("message").innerText =
-            "❌ Error saving worker data.";
-
-    }
-
-});
-
-</script>
-
-</body>
-</html>
+<main class="card">
+  <div class="logo"><span class="mark">👷</span></div>
+  <h1>LabourConnect</h1>
+  <p class="sub">Create your account</p>
+  <div id="msg" class="msg" role="alert"></div>
+  <form id="form">
+    <div class="f"><label for="name">Full name</label><input id="name" required autocomplete="name"></div>
+    <div class="f"><label for="email">Email</label><input id="email" type="email" required autocomplete="email"></div>
