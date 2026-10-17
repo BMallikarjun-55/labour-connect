@@ -36,3 +36,194 @@ nav a:hover{background:rgba(255,255,255,.12)}
 .search{background:var(--surface);color:var(--ink);border-radius:16px;padding:14px;max-width:820px}
 .tabs{display:flex;gap:6px;margin-bottom:12px}
 .tabs button{flex:1;font:700 15px Archivo,sans-serif;padding:10px;border-radius:10px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.fields{display:grid;grid-template-columns:1.2fr 1fr auto;gap:10px}
+label{display:block}
+.fields span{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:3px}
+input,select{width:100%;height:46px;padding:0 12px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.fields .btn{align-self:end;height:46px}
+.note{margin:10px 2px 0;font-size:15px;color:var(--muted);min-height:24px}
+section{padding:64px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.head h2{font-size:clamp(26px,4vw,36px)}
+.head p{margin:6px 0 0;color:var(--muted)}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cat{display:flex;gap:14px;align-items:center;text-align:left;padding:18px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}
+.cat:hover{border-color:var(--accent)}
+.cat b{display:block;font:700 18px Archivo,sans-serif}
+.cat small{color:var(--muted);font-size:15px}
+.ico{flex:none;width:48px;height:48px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:24px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding-top:18px;border-top:4px solid var(--accent)}
+.steps li::before{content:"Step " counter(s);font-weight:600;color:var(--muted);font-size:15px}
+.steps h3{font-size:22px;margin:4px 0 6px}
+.steps p{margin:0;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.member{display:flex;align-items:center;gap:14px;padding:16px;border:2px solid var(--line);border-radius:14px;background:var(--surface)}
+.av{flex:none;width:52px;height:52px;border-radius:50%;background:var(--brand);color:var(--accent);display:grid;place-items:center;font:800 18px Archivo,sans-serif}
+.member b{display:block;font:700 18px Archivo,sans-serif}
+.member small{color:var(--muted);font-size:15px}
+.cta{background:var(--accent);color:var(--accent-ink);text-align:center;padding:48px 0}
+.cta h2{font-size:clamp(24px,4vw,34px)}
+.cta p{margin:8px 0 20px}
+.cta .btn{background:var(--accent-ink);color:#fff}
+footer{background:var(--brand);color:#cfd5e6;padding:44px 0 28px;font-size:16px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:28px}
+footer h3{color:#fff;font-size:16px;margin-bottom:10px}
+footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}
+footer a{text-decoration:none}footer a:hover{color:#fff;text-decoration:underline}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-top:18px;font-size:14px}
+dialog{border:0;border-radius:16px;padding:24px;width:min(400px,calc(100vw - 32px));background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(10,15,28,.6)}
+dialog h2{font-size:24px;margin-bottom:14px}
+dialog label{margin-bottom:12px}
+.x{float:right;background:none;border:0;font-size:24px;color:var(--muted);cursor:pointer}
+.link{background:none;border:0;color:var(--ink);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
+@media (max-width:820px){
+ .menu{display:block}
+ nav{position:absolute;left:0;right:0;top:64px;background:var(--brand);display:none;padding:8px 20px 16px}
+ nav.open{display:block}nav ul{flex-direction:column}
+ .actions .btn-ghost{display:none}
+ .fields{grid-template-columns:1fr}
+ .cats,.team{grid-template-columns:1fr 1fr}
+ .steps,.fg{grid-template-columns:1fr}
+ section{padding:48px 0}
+}
+@media (max-width:480px){.cats,.team{grid-template-columns:1fr}.hero{padding:36px 0 48px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#top"><i aria-hidden="true">👷</i>LabourConnect</a>
+  <nav id="nav" aria-label="Main">
+   <ul>
+    <li><a href="#top">Home</a></li>
+    <li><a href="#categories">Find jobs</a></li>
+    <li><a href="#categories">Find workers</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#team">Our team</a></li>
+   </ul>
+  </nav>
+  <div class="actions">
+   <button class="btn btn-ghost" data-open="login">Log in</button>
+   <button class="btn btn-accent" data-open="register">Register</button>
+   <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+ </div>
+</header>
+
+<main id="top">
+ <div class="hero">
+  <div class="wrap">
+   <h1>Find work. Hire workers. One place.</h1>
+   <p>LabourConnect connects skilled and unskilled workers with people who need reliable help, quickly and easily.</p>
+   <form class="search" id="search" role="search">
+    <div class="tabs" role="tablist">
+     <button type="button" role="tab" aria-selected="true" data-mode="work">I want work</button>
+     <button type="button" role="tab" aria-selected="false" data-mode="hire">I want to hire</button>
+    </div>
+    <div class="fields">
+     <label><span>Type of work</span>
+      <select id="cat"><option value="">All categories</option><option>Construction</option><option>Painting</option><option>Cleaning</option><option>Farming</option><option>Plumbing</option><option>Electrician</option></select></label>
+     <label><span>Location</span><input id="loc" placeholder="City or area" autocomplete="address-level2"></label>
+     <button class="btn btn-accent" type="submit" id="go">Search jobs</button>
+    </div>
+    <p class="note" id="note" aria-live="polite"></p>
+   </form>
+  </div>
+ </div>
+
+ <section id="categories">
+  <div class="wrap">
+   <div class="head"><div><h2>Popular categories</h2><p>Tap a category to start your search.</p></div></div>
+   <div class="cats">
+    <button class="cat" data-c="Construction"><span class="ico">🧱</span><span><b>Construction</b><small>124+ jobs</small></span></button>
+    <button class="cat" data-c="Painting"><span class="ico">🎨</span><span><b>Painting</b><small>86+ jobs</small></span></button>
+    <button class="cat" data-c="Cleaning"><span class="ico">🧹</span><span><b>Cleaning</b><small>72+ jobs</small></span></button>
+    <button class="cat" data-c="Farming"><span class="ico">🌱</span><span><b>Farming</b><small>58+ jobs</small></span></button>
+    <button class="cat" data-c="Plumbing"><span class="ico">🔧</span><span><b>Plumbing</b><small>46+ jobs</small></span></button>
+    <button class="cat" data-c="Electrician"><span class="ico">⚡</span><span><b>Electrician</b><small>39+ jobs</small></span></button>
+   </div>
+  </div>
+ </section>
+
+ <section class="alt" id="how">
+  <div class="wrap">
+   <div class="head"><div><h2>How LabourConnect works</h2><p>Three simple steps to get started.</p></div></div>
+   <ol class="steps">
+    <li><h3>Register</h3><p>Create your account as an employer or a worker.</p></li>
+    <li><h3>Search</h3><p>Find the right workers or jobs for your needs.</p></li>
+    <li><h3>Connect</h3><p>Contact, hire or apply, and get to work.</p></li>
+   </ol>
+  </div>
+ </section>
+
+ <section id="team">
+  <div class="wrap">
+   <div class="head"><div><h2>Our team</h2><p>The people behind LabourConnect.</p></div></div>
+   <div class="team">
+    <div class="member"><span class="av">R</span><span><b>Rishi</b><small>Team member</small></span></div>
+    <div class="member"><span class="av">V</span><span><b>Vishal</b><small>Team member</small></span></div>
+    <div class="member"><span class="av">H</span><span><b>Harshith</b><small>Team member</small></span></div>
+    <div class="member"><span class="av">A</span><span><b>Akshay</b><small>Team member</small></span></div>
+    <div class="member"><span class="av">M</span><span><b>Mallikarjun</b><small>Team member</small></span></div>
+    <div class="member"><span class="av">SV</span><span><b>Sahithya Vardhan</b><small>Team member</small></span></div>
+   </div>
+  </div>
+ </section>
+
+ <div class="cta">
+  <div class="wrap">
+   <h2>Ready to get started?</h2>
+   <p>Join as a worker or an employer in under a minute.</p>
+   <button class="btn" data-open="register">Create free account</button>
+  </div>
+ </div>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fg">
+   <div><a class="logo" href="#top" style="color:#fff"><i aria-hidden="true">👷</i>LabourConnect</a><p>Together for a better tomorrow.</p></div>
+   <div><h3>Quick links</h3><ul><li><a href="#top">Home</a></li><li><a href="#categories">Find jobs</a></li><li><a href="#categories">Find workers</a></li><li><a href="#team">Our team</a></li></ul></div>
+   <div><h3>Support</h3><ul><li><a href="#">Help &amp; FAQ</a></li><li><a href="#">Contact us</a></li><li><a href="#">Terms &amp; conditions</a></li><li><a href="#">Privacy policy</a></li></ul></div>
+  </div>
+  <div class="copy">© 2026 LabourConnect. All rights reserved.</div>
+ </div>
+</footer>
+
+<dialog id="dlg">
+ <button class="x" aria-label="Close" id="close">×</button>
+ <h2 id="dt">Log in</h2>
+ <form id="af">
+  <label id="nm" hidden><span style="font-size:14px;color:var(--muted)">Full name</span><input id="name" autocomplete="name"></label>
+  <label><span style="font-size:14px;color:var(--muted)">Phone or email</span><input id="id" required autocomplete="username"></label>
+  <label id="rl" hidden><span style="font-size:14px;color:var(--muted)">I am a</span><select><option>Worker looking for work</option><option>Employer hiring workers</option></select></label>
+  <label><span style="font-size:14px;color:var(--muted)">Password</span><input type="password" required autocomplete="current-password"></label>
+  <button class="btn btn-accent" style="width:100%" id="sub">Log in</button>
+  <p class="note" id="swap" style="text-align:center"></p>
+ </form>
+</dialog>
+
+<script>
+var mode="work",$=function(i){return document.getElementById(i)};
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){
+ mode=b.dataset.mode;document.querySelectorAll(".tabs button").forEach(function(x){x.setAttribute("aria-selected",x===b)});
+ $("go").textContent=mode==="work"?"Search jobs":"Search workers";$("note").textContent=""}});
+function run(e){if(e)e.preventDefault();var c=$("cat").value||"all categories",l=$("loc").value.trim();
+ $("note").textContent="Showing "+(mode==="work"?"jobs":"workers")+" for "+c+(l?" in "+l:"")+". Register to see contact details."}
+$("search").onsubmit=run;
+document.querySelectorAll(".cat").forEach(function(b){b.onclick=function(){$("cat").value=b.dataset.c;run();window.scrollTo({top:0,behavior:"smooth"})}});
+$("menu").onclick=function(){var o=$("nav").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$("nav").onclick=function(e){if(e.target.tagName==="A")$("nav").classList.remove("open")};
+function setAuth(m){var r=m==="register";$("dt").textContent=r?"Create your account":"Log in";$("sub").textContent=r?"Register":"Log in";
+ $("nm").hidden=$("rl").hidden=!r;$("swap").innerHTML=r?'Already registered? <button type="button" class="link" id="s">Log in</button>':'New here? <button type="button" class="link" id="s">Create an account</button>';
+ $("s").onclick=function(){setAuth(r?"login":"register")}}
+document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(){setAuth(b.dataset.open);$("dlg").showModal()}});
+$("close").onclick=function(){$("dlg").close()};
+$("af").onsubmit=function(e){e.preventDefault();$("dlg").close();$("note").textContent="Thanks! Accounts will be available soon.";window.scrollTo({top:0,behavior:"smooth"})};
+</script>
+</body>
+</html>
